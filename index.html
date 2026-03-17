@@ -104,13 +104,62 @@
 
   /* Footer */
   .footer { text-align: center; padding: 20px; font-size: 11px; color: #aaa; }
+
+  /* Password overlay */
+  #pw-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: linear-gradient(135deg, #1F3864, #2E75B6);
+    display: flex; align-items: center; justify-content: center;
+  }
+  #pw-box {
+    background: white; border-radius: 16px; padding: 32px 28px;
+    width: 88%; max-width: 340px; text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+  #pw-box h2 { color: #1F3864; font-size: 18px; margin-bottom: 6px; }
+  #pw-box p  { color: #888; font-size: 12px; margin-bottom: 20px; }
+  #pw-input {
+    width: 100%; padding: 12px 16px; border: 2px solid #D6E4F0;
+    border-radius: 8px; font-size: 20px; text-align: center;
+    letter-spacing: 6px; outline: none; color: #1F3864;
+    transition: border-color 0.2s;
+  }
+  #pw-input:focus { border-color: #2E75B6; }
+  #pw-btn {
+    width: 100%; margin-top: 14px; padding: 12px;
+    background: #2E75B6; color: white; border: none;
+    border-radius: 8px; font-size: 15px; font-weight: 600;
+    cursor: pointer; transition: background 0.2s;
+  }
+  #pw-btn:active { background: #1F3864; }
+  #pw-error {
+    color: #C00000; font-size: 12px; margin-top: 10px;
+    min-height: 16px; font-weight: 500;
+  }
+  #pw-hint { color: #aaa; font-size: 11px; margin-top: 8px; }
+  #main-content { display: none; }
 </style>
 </head>
 <body>
 
+<!-- 密码锁 -->
+<div id="pw-overlay">
+  <div id="pw-box">
+    <h2>🔒 锦和财务报告</h2>
+    <p>请输入访问密码</p>
+    <input id="pw-input" type="password" inputmode="numeric"
+           placeholder="••••••" maxlength="10"
+           onkeydown="if(event.key==='Enter') checkPw()">
+    <button id="pw-btn" onclick="checkPw()">进入报告</button>
+    <div id="pw-error"></div>
+    <div id="pw-hint">输入密码后按确认进入</div>
+  </div>
+</div>
+
+<div id="main-content">
 <div class="header">
   <h1>锦和科技 · 财务报告</h1>
-  <div class="subtitle">生成时间：2026年03月18日 02:15 · 数据覆盖 2025-02 至 2026-02</div>
+  <div class="subtitle">生成时间：2026年03月18日 02:19 · 数据覆盖 2025-02 至 2026-02</div>
 </div>
 
 <div class="tabs">
@@ -333,6 +382,40 @@ new Chart(document.getElementById('chart2'), {
     callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.raw?.toFixed(1)}%` }
   }}, scales: {...commonOpts.scales, y: { ticks: { callback: v => v + '%', font: { size: 10 } } } }}
 });
+
+// 密码验证
+const HASH = '1e37c6da4a609bc44f03f7a7a61c4e76'; // md5(666888)
+function md5(s) {
+  // 简单哈希用于前端校验
+  let h = 0;
+  for (let i = 0; i < s.length; i++) {
+    h = Math.imul(31, h) + s.charCodeAt(i) | 0;
+  }
+  return Math.abs(h).toString(16).padStart(8, '0');
+}
+function checkPw() {
+  const val = document.getElementById('pw-input').value.trim();
+  const err = document.getElementById('pw-error');
+  if (val === '666888') {
+    sessionStorage.setItem('jh_auth', '1');
+    document.getElementById('pw-overlay').style.display = 'none';
+    document.getElementById('main-content').style.display = 'block';
+    err.textContent = '';
+  } else {
+    err.textContent = '密码错误，请重试';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
+    document.getElementById('pw-input').style.borderColor = '#C00000';
+    setTimeout(() => document.getElementById('pw-input').style.borderColor = '#D6E4F0', 1500);
+  }
+}
+// 本次会话已验证则直接进入
+if (sessionStorage.getItem('jh_auth') === '1') {
+  document.getElementById('pw-overlay').style.display = 'none';
+  document.getElementById('main-content').style.display = 'block';
+}
+document.getElementById('pw-input').focus();
 </script>
+</div><!-- /main-content -->
 </body>
 </html>
