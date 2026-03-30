@@ -102,6 +102,17 @@
   .note { background: #fffbeb; border-left: 3px solid #F59E0B; border-radius: 0 8px 8px 0;
            padding: 10px 12px; font-size: 11px; color: #92400E; margin-bottom: 10px; }
 
+  /* Daily dashboard */
+  .day-pos  { color: var(--green); }
+  .day-neg  { color: var(--red); }
+  .day-na   { color: #bbb; }
+  .day-cost { color: #E67E22; }
+  .today-row td { background: #fffbeb !important; font-weight: 600; }
+  .today-row td.label { background: #fff3cd !important; }
+  .pill { display: inline-block; background: #EEF4FF; color: var(--mid);
+           border: 1px solid var(--light); border-radius: 20px;
+           padding: 3px 10px; font-size: 11px; margin: 2px; }
+
   /* Footer */
   .footer { text-align: center; padding: 20px; font-size: 11px; color: #aaa; }
 
@@ -159,18 +170,334 @@
 <div id="main-content">
 <div class="header">
   <h1>锦和科技 · 财务报告</h1>
-  <div class="subtitle">生成时间：2026年03月30日 16:54 · 数据覆盖 2025-02 至 2026-03</div>
+  <div class="subtitle">生成时间：2026年03月30日 17:29 · 数据覆盖 2025-02 至 2026-03</div>
 </div>
 
 <div class="tabs">
-  <div class="tab active" onclick="showTab('overview')">📊 概览</div>
+  <div class="tab active" onclick="showTab('daily')">📅 每日看板</div>
+  <div class="tab" onclick="showTab('overview')">📊 概览</div>
   <div class="tab" onclick="showTab('income')">📋 利润表</div>
   <div class="tab" onclick="showTab('balance')">🏦 资产负债</div>
   <div class="tab" onclick="showTab('cashflow')">💰 现金流</div>
 </div>
 
+
+<div id="daily" class="section">
+
+  <!-- 数据时间提示 -->
+  <div class="note" style="margin-bottom:10px;">
+    📡 <strong>领星数据更新：</strong>2026-03-30T16:54 &nbsp;|&nbsp;
+    汇率 USD=7.25 AED=1.97 &nbsp;|&nbsp;
+    每日分摊成本 ¥3,032
+  </div>
+
+  <!-- 今日 KPI -->
+  <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;">
+    <div class="kpi-card kpi-blue">
+      <div class="kpi-title">今日收入</div>
+      <div class="kpi-value" style="font-size:18px;">¥0</div>
+      <div class="kpi-sub">0 单</div>
+    </div>
+    <div class="kpi-card kpi-red">
+      <div class="kpi-title">今日利润</div>
+      <div class="kpi-value" style="font-size:18px;">¥-3,032</div>
+      <div class="kpi-sub">亏</div>
+    </div>
+    <div class="kpi-card kpi-red">
+      <div class="kpi-title">本月累计利润</div>
+      <div class="kpi-value" style="font-size:18px;">¥-60,611</div>
+      <div class="kpi-sub">-199.8% 净利率</div>
+    </div>
+    <div class="kpi-card kpi-blue">
+      <div class="kpi-title">本月累计收入</div>
+      <div class="kpi-value" style="font-size:18px;">¥30,335</div>
+      <div class="kpi-sub">145 单</div>
+    </div>
+  </div>
+
+  <!-- 月度成本结构 -->
+  <div class="chart-card">
+    <div class="chart-title">💼 2026-03 成本分派（月总计 ¥93,978）</div>
+    <div style="padding:4px 0 8px;"><span class="pill">人工 ¥78,978</span> <span class="pill">租金 ¥15,000</span></div>
+    <div style="font-size:11px;color:#888;">⚡ 订阅/仓储费用持续补充中 · 以上成本按日历天数均摊</div>
+  </div>
+
+  <!-- 每日收入/利润图 -->
+  <div class="chart-card">
+    <div class="chart-title">📊 2026-03 每日收入 vs 利润（RMB）</div>
+    <div class="chart-wrap" style="height:240px;"><canvas id="dailyChart"></canvas></div>
+  </div>
+
+  <!-- 每日明细表 -->
+  <div class="table-card">
+    <div class="table-header">📋 2026-03 每日明细（转换为人民币）</div>
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>日期</th><th>收入(¥)</th><th>分摊成本(¥)</th>
+          <th>经营利润(¥)</th><th>利润率</th><th>订单数</th>
+        </tr>
+      </thead>
+      <tbody><tr class="">
+          <td class="label">1日</td>
+          <td>¥720</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,312</td>
+          <td class="day-neg">-321.3%</td>
+          <td>4</td>
+        </tr><tr class="">
+          <td class="label">2日</td>
+          <td>¥541</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,491</td>
+          <td class="day-neg">-460.5%</td>
+          <td>3</td>
+        </tr><tr class="">
+          <td class="label">3日</td>
+          <td>¥1,302</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-1,730</td>
+          <td class="day-neg">-132.9%</td>
+          <td>6</td>
+        </tr><tr class="">
+          <td class="label">4日</td>
+          <td>¥747</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,284</td>
+          <td class="day-neg">-305.6%</td>
+          <td>4</td>
+        </tr><tr class="">
+          <td class="label">5日</td>
+          <td>¥355</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,677</td>
+          <td class="day-neg">-754.4%</td>
+          <td>2</td>
+        </tr><tr class="">
+          <td class="label">6日</td>
+          <td>¥362</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,670</td>
+          <td class="day-neg">-738.3%</td>
+          <td>2</td>
+        </tr><tr class="">
+          <td class="label">7日</td>
+          <td>¥531</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,500</td>
+          <td class="day-neg">-470.6%</td>
+          <td>3</td>
+        </tr><tr class="">
+          <td class="label">8日</td>
+          <td>¥535</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,497</td>
+          <td class="day-neg">-467.1%</td>
+          <td>2</td>
+        </tr><tr class="">
+          <td class="label">9日</td>
+          <td>¥1,080</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-1,951</td>
+          <td class="day-neg">-180.7%</td>
+          <td>6</td>
+        </tr><tr class="">
+          <td class="label">10日</td>
+          <td>¥437</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,594</td>
+          <td class="day-neg">-593.5%</td>
+          <td>2</td>
+        </tr><tr class="">
+          <td class="label">11日</td>
+          <td>¥761</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,270</td>
+          <td class="day-neg">-298.2%</td>
+          <td>4</td>
+        </tr><tr class="">
+          <td class="label">12日</td>
+          <td>¥1,429</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-1,603</td>
+          <td class="day-neg">-112.2%</td>
+          <td>8</td>
+        </tr><tr class="">
+          <td class="label">13日</td>
+          <td>¥1,150</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-1,882</td>
+          <td class="day-neg">-163.7%</td>
+          <td>6</td>
+        </tr><tr class="">
+          <td class="label">14日</td>
+          <td>¥1,663</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-1,369</td>
+          <td class="day-neg">-82.3%</td>
+          <td>6</td>
+        </tr><tr class="">
+          <td class="label">15日</td>
+          <td>¥3,381</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-pos">¥350</td>
+          <td class="day-pos">10.3%</td>
+          <td>15</td>
+        </tr><tr class="">
+          <td class="label">16日</td>
+          <td>¥3,101</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-pos">¥69</td>
+          <td class="day-pos">2.2%</td>
+          <td>16</td>
+        </tr><tr class="">
+          <td class="label">17日</td>
+          <td>¥2,393</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-639</td>
+          <td class="day-neg">-26.7%</td>
+          <td>8</td>
+        </tr><tr class="">
+          <td class="label">18日</td>
+          <td>¥1,860</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-1,172</td>
+          <td class="day-neg">-63.0%</td>
+          <td>10</td>
+        </tr><tr class="">
+          <td class="label">19日</td>
+          <td>¥2,555</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-477</td>
+          <td class="day-neg">-18.7%</td>
+          <td>12</td>
+        </tr><tr class="">
+          <td class="label">20日</td>
+          <td>¥2,271</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-760</td>
+          <td class="day-neg">-33.5%</td>
+          <td>12</td>
+        </tr><tr class="">
+          <td class="label">21日</td>
+          <td>¥478</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,554</td>
+          <td class="day-neg">-534.2%</td>
+          <td>2</td>
+        </tr><tr class="">
+          <td class="label">22日</td>
+          <td>¥894</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,137</td>
+          <td class="day-neg">-239.0%</td>
+          <td>4</td>
+        </tr><tr class="">
+          <td class="label">23日</td>
+          <td>¥672</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,360</td>
+          <td class="day-neg">-351.3%</td>
+          <td>3</td>
+        </tr><tr class="">
+          <td class="label">24日</td>
+          <td>¥0</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-3,032</td>
+          <td class="day-na">—</td>
+          <td>0</td>
+        </tr><tr class="">
+          <td class="label">25日</td>
+          <td>¥447</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,584</td>
+          <td class="day-neg">-578.0%</td>
+          <td>2</td>
+        </tr><tr class="">
+          <td class="label">26日</td>
+          <td>¥225</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,807</td>
+          <td class="day-neg">-1250.0%</td>
+          <td>1</td>
+        </tr><tr class="">
+          <td class="label">27日</td>
+          <td>¥0</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-3,032</td>
+          <td class="day-na">—</td>
+          <td>0</td>
+        </tr><tr class="">
+          <td class="label">28日</td>
+          <td>¥223</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,809</td>
+          <td class="day-neg">-1262.1%</td>
+          <td>1</td>
+        </tr><tr class="">
+          <td class="label">29日</td>
+          <td>¥225</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-2,807</td>
+          <td class="day-neg">-1250.0%</td>
+          <td>1</td>
+        </tr><tr class=" today-row">
+          <td class="label">30日</td>
+          <td>¥0</td>
+          <td class="day-cost">¥3,032</td>
+          <td class="day-neg">¥-3,032</td>
+          <td class="day-na">—</td>
+          <td>0</td>
+        </tr></tbody>
+    </table>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// 每日看板图表
+(function() {
+  const days    = ["1\u65e5", "2\u65e5", "3\u65e5", "4\u65e5", "5\u65e5", "6\u65e5", "7\u65e5", "8\u65e5", "9\u65e5", "10\u65e5", "11\u65e5", "12\u65e5", "13\u65e5", "14\u65e5", "15\u65e5", "16\u65e5", "17\u65e5", "18\u65e5", "19\u65e5", "20\u65e5", "21\u65e5", "22\u65e5", "23\u65e5", "24\u65e5", "25\u65e5", "26\u65e5", "27\u65e5", "28\u65e5", "29\u65e5", "30\u65e5"];
+  const rev     = [720.0, 541.0, 1302.0, 747.0, 355.0, 362.0, 531.0, 535.0, 1080.0, 437.0, 761.0, 1429.0, 1150.0, 1663.0, 3381.0, 3101.0, 2393.0, 1860.0, 2555.0, 2271.0, 478.0, 894.0, 672.0, 0.0, 447.0, 225.0, 0.0, 223.0, 225.0, 0.0];
+  const profits = [-2312.0, -2491.0, -1730.0, -2284.0, -2677.0, -2670.0, -2500.0, -2497.0, -1951.0, -2594.0, -2270.0, -1603.0, -1882.0, -1369.0, 350.0, 69.0, -639.0, -1172.0, -477.0, -760.0, -2554.0, -2137.0, -2360.0, -3032.0, -2584.0, -2807.0, -3032.0, -2809.0, -2807.0, -3032.0];
+  const costs   = [3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0, 3032.0];
+  new Chart(document.getElementById('dailyChart'), {
+    type: 'bar',
+    data: {
+      labels: days,
+      datasets: [
+        { label: '收入(¥)', data: rev, backgroundColor: 'rgba(46,117,182,0.65)',
+           borderRadius: 3, order: 2 },
+        { label: '经营利润(¥)', data: profits,
+           backgroundColor: profits.map(v => v >= 0 ? 'rgba(112,173,71,0.8)' : 'rgba(192,0,0,0.7)'),
+           borderRadius: 3, order: 2 },
+        { label: '日均成本(¥)', data: costs, type: 'line',
+           borderColor: '#E67E22', borderWidth: 2, borderDash: [5,3],
+           pointRadius: 0, fill: false, order: 1 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { font: { size: 11 } } },
+        tooltip: { callbacks: {
+          label: ctx => ` ${ctx.dataset.label}: ¥${Number(ctx.raw).toLocaleString('zh-CN',{minimumFractionDigits:0})}`
+        } }
+      },
+      scales: {
+        x: { ticks: { font: { size: 10 }, maxRotation: 0 } },
+        y: { ticks: { font: { size: 10 }, callback: v => '¥'+Number(v).toLocaleString() } }
+      }
+    }
+  });
+})();
+</script>
+
+
 <!-- ══════ 概览 ══════ -->
-<div id="overview" class="section active">
+<div id="overview" class="section">
   
     <div class="kpi-grid">
       
@@ -337,6 +664,8 @@ function showTab(id) {
   document.getElementById(id).classList.add('active');
   event.target.classList.add('active');
 }
+// 默认显示每日看板
+document.getElementById('daily').classList.add('active');
 
 const months    = ["2025-02(\u00a5)", "2025-03(\u00a5)", "2025-04(\u00a5)", "2025-05(\u00a5)", "2025-06(\u00a5)", "2025-08($)", "2025-09($)", "2025-10($)", "2025-12($)", "2026-01(\u00a5)", "2026-02(\u00a5)"];
 const revenue   = [219196.25, 313309.79, 175779.76, 207859.6, 38712.05, 49834.21, 35945.84, 48985.71, 38419.34, 167216.95, 147464.88];
