@@ -112,6 +112,9 @@
   .pill { display: inline-block; background: #EEF4FF; color: var(--mid);
            border: 1px solid var(--light); border-radius: 20px;
            padding: 3px 10px; font-size: 11px; margin: 2px; }
+  .pill-plat { display: inline-block; background: #F0F9F0; color: #276749;
+                border: 1px solid #C6E8D0; border-radius: 20px;
+                padding: 3px 10px; font-size: 11px; margin: 2px; }
 
   /* Footer */
   .footer { text-align: center; padding: 20px; font-size: 11px; color: #aaa; }
@@ -170,7 +173,7 @@
 <div id="main-content">
 <div class="header">
   <h1>锦和科技 · 财务报告</h1>
-  <div class="subtitle">生成时间：2026年03月30日 18:12 · 数据覆盖 2025-02 至 2026-03</div>
+  <div class="subtitle">生成时间：2026年03月30日 19:53 · 数据覆盖 2025-02 至 2026-03</div>
 </div>
 
 <div class="tabs">
@@ -179,16 +182,24 @@
   <div class="tab" onclick="showTab('income')">📋 利润表</div>
   <div class="tab" onclick="showTab('balance')">🏦 资产负债</div>
   <div class="tab" onclick="showTab('cashflow')">💰 现金流</div>
+  <div class="tab" onclick="showTab('y2025')">📁 2025年度</div>
+  <div class="tab" onclick="showTab('inventory')">📦 库存</div>
 </div>
 
 
 <div id="daily" class="section">
 
-  <!-- 数据时间提示 -->
+  <!-- 数据时间 + 汇率 -->
   <div class="note" style="margin-bottom:10px;">
     📡 <strong>领星数据更新：</strong>2026-03-30T18:10 &nbsp;|&nbsp;
-    汇率 USD=7.25 AED=1.97 &nbsp;|&nbsp;
-    每日分摊成本 ¥3,032
+    当月均价 USD×7.25 &nbsp;AED×1.97 &nbsp;MXN×0.4 &nbsp;|&nbsp;
+    日均成本 ¥3,032
+  </div>
+
+  <!-- 数据收录平台 -->
+  <div class="chart-card" style="padding:12px 14px 10px;">
+    <div class="chart-title" style="margin-bottom:8px;">📡 本月数据收录平台</div>
+    <div><span class="pill-plat">TikTok <strong>354</strong>单</span> <span class="pill-plat">Amazon <strong>145</strong>单</span> <span class="pill-plat">MercadoLibre <strong>108</strong>单</span> <span class="pill-plat">Walmart <strong>65</strong>单</span></div>
   </div>
 
   <!-- 今日 KPI -->
@@ -201,7 +212,7 @@
     <div class="kpi-card kpi-red">
       <div class="kpi-title">今日利润</div>
       <div class="kpi-value" style="font-size:18px;">¥-1,580</div>
-      <div class="kpi-sub">亏</div>
+      <div class="kpi-sub">亏损</div>
     </div>
     <div class="kpi-card kpi-green">
       <div class="kpi-title">本月累计利润</div>
@@ -222,15 +233,15 @@
     <div style="font-size:11px;color:#888;">⚡ 订阅/仓储费用持续补充中 · 以上成本按日历天数均摊</div>
   </div>
 
-  <!-- 每日收入/利润图 -->
+  <!-- 全平台每日收入/利润图 -->
   <div class="chart-card">
-    <div class="chart-title">📊 2026-03 每日收入 vs 利润（RMB）</div>
+    <div class="chart-title">📊 2026-03 每日收入 vs 利润（全平台合计，RMB）</div>
     <div class="chart-wrap" style="height:240px;"><canvas id="dailyChart"></canvas></div>
   </div>
 
-  <!-- 每日明细表 -->
+  <!-- 全平台每日明细表 -->
   <div class="table-card">
-    <div class="table-header">📋 2026-03 每日明细（转换为人民币）</div>
+    <div class="table-header">📋 2026-03 每日明细（全平台，已转人民币）</div>
     <div class="table-wrap">
     <table>
       <thead>
@@ -454,10 +465,151 @@
     </div>
   </div>
 
+  <!-- 美客多 (MercadoLibre) 单独看板 -->
+  <div class="chart-card" style="border-left:4px solid #F0B429;">
+    <div class="chart-title" style="color:#B45309;">
+      🦁 MercadoLibre 每日收入（2026-03）
+      &nbsp;<span style="font-size:11px;font-weight:400;color:#888;">
+        本月累计 ¥14,577 · 108 单 · MXN×0.4
+      </span>
+    </div>
+    <div class="chart-wrap" style="height:180px;"><canvas id="mlChart"></canvas></div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-header" style="background:#B45309;">🦁 MercadoLibre 每日明细（RMB）</div>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>日期</th><th>收入(¥)</th><th>订单数</th></tr></thead>
+      <tbody><tr class="">
+          <td class="label">1日</td>
+          <td>¥96</td>
+          <td>1</td>
+        </tr><tr class="">
+          <td class="label">2日</td>
+          <td>¥927</td>
+          <td>4</td>
+        </tr><tr class="">
+          <td class="label">3日</td>
+          <td>¥690</td>
+          <td>5</td>
+        </tr><tr class="">
+          <td class="label">4日</td>
+          <td>¥570</td>
+          <td>2</td>
+        </tr><tr class="">
+          <td class="label">5日</td>
+          <td>¥216</td>
+          <td>2</td>
+        </tr><tr class="">
+          <td class="label">6日</td>
+          <td>¥716</td>
+          <td>5</td>
+        </tr><tr class="">
+          <td class="label">7日</td>
+          <td>¥559</td>
+          <td>4</td>
+        </tr><tr class="">
+          <td class="label">8日</td>
+          <td>¥359</td>
+          <td>2</td>
+        </tr><tr class="">
+          <td class="label">9日</td>
+          <td>¥598</td>
+          <td>6</td>
+        </tr><tr class="">
+          <td class="label">10日</td>
+          <td>¥318</td>
+          <td>3</td>
+        </tr><tr class="">
+          <td class="label">11日</td>
+          <td>¥636</td>
+          <td>4</td>
+        </tr><tr class="">
+          <td class="label">12日</td>
+          <td>¥1,073</td>
+          <td>9</td>
+        </tr><tr class="">
+          <td class="label">13日</td>
+          <td>¥799</td>
+          <td>8</td>
+        </tr><tr class="">
+          <td class="label">14日</td>
+          <td>¥997</td>
+          <td>8</td>
+        </tr><tr class="">
+          <td class="label">15日</td>
+          <td>¥237</td>
+          <td>1</td>
+        </tr><tr class="">
+          <td class="label">16日</td>
+          <td>¥319</td>
+          <td>3</td>
+        </tr><tr class="">
+          <td class="label">17日</td>
+          <td>¥160</td>
+          <td>2</td>
+        </tr><tr class="">
+          <td class="label">18日</td>
+          <td>¥556</td>
+          <td>5</td>
+        </tr><tr class="">
+          <td class="label">19日</td>
+          <td>¥839</td>
+          <td>6</td>
+        </tr><tr class="">
+          <td class="label">20日</td>
+          <td>¥478</td>
+          <td>3</td>
+        </tr><tr class="">
+          <td class="label">21日</td>
+          <td>¥838</td>
+          <td>6</td>
+        </tr><tr class="">
+          <td class="label">22日</td>
+          <td>¥160</td>
+          <td>1</td>
+        </tr><tr class="">
+          <td class="label">23日</td>
+          <td>¥0</td>
+          <td>0</td>
+        </tr><tr class="">
+          <td class="label">24日</td>
+          <td>¥160</td>
+          <td>1</td>
+        </tr><tr class="">
+          <td class="label">25日</td>
+          <td>¥160</td>
+          <td>1</td>
+        </tr><tr class="">
+          <td class="label">26日</td>
+          <td>¥160</td>
+          <td>2</td>
+        </tr><tr class="">
+          <td class="label">27日</td>
+          <td>¥360</td>
+          <td>3</td>
+        </tr><tr class="">
+          <td class="label">28日</td>
+          <td>¥479</td>
+          <td>5</td>
+        </tr><tr class="">
+          <td class="label">29日</td>
+          <td>¥878</td>
+          <td>4</td>
+        </tr><tr class=" today-row">
+          <td class="label">30日</td>
+          <td>¥239</td>
+          <td>2</td>
+        </tr></tbody>
+    </table>
+    </div>
+  </div>
+
 </div>
 
 <script>
-// 每日看板图表
+// 全平台每日看板图表
 (function() {
   const days    = ["1\u65e5", "2\u65e5", "3\u65e5", "4\u65e5", "5\u65e5", "6\u65e5", "7\u65e5", "8\u65e5", "9\u65e5", "10\u65e5", "11\u65e5", "12\u65e5", "13\u65e5", "14\u65e5", "15\u65e5", "16\u65e5", "17\u65e5", "18\u65e5", "19\u65e5", "20\u65e5", "21\u65e5", "22\u65e5", "23\u65e5", "24\u65e5", "25\u65e5", "26\u65e5", "27\u65e5", "28\u65e5", "29\u65e5", "30\u65e5"];
   const rev     = [3781.0, 4692.0, 4974.0, 2898.0, 4328.0, 6023.0, 5351.0, 5245.0, 8404.0, 4910.0, 5948.0, 6458.0, 7643.0, 6416.0, 5899.0, 7574.0, 4529.0, 7939.0, 7736.0, 5406.0, 6046.0, 5068.0, 4641.0, 3313.0, 3263.0, 4546.0, 3069.0, 2514.0, 2878.0, 1452.0];
@@ -489,6 +641,36 @@
       scales: {
         x: { ticks: { font: { size: 10 }, maxRotation: 0 } },
         y: { ticks: { font: { size: 10 }, callback: v => '¥'+Number(v).toLocaleString() } }
+      }
+    }
+  });
+})();
+
+// 美客多图表
+(function() {
+  const days   = ["1\u65e5", "2\u65e5", "3\u65e5", "4\u65e5", "5\u65e5", "6\u65e5", "7\u65e5", "8\u65e5", "9\u65e5", "10\u65e5", "11\u65e5", "12\u65e5", "13\u65e5", "14\u65e5", "15\u65e5", "16\u65e5", "17\u65e5", "18\u65e5", "19\u65e5", "20\u65e5", "21\u65e5", "22\u65e5", "23\u65e5", "24\u65e5", "25\u65e5", "26\u65e5", "27\u65e5", "28\u65e5", "29\u65e5", "30\u65e5"];
+  const mlRev  = [96.0, 927.0, 690.0, 570.0, 216.0, 716.0, 559.0, 359.0, 598.0, 318.0, 636.0, 1073.0, 799.0, 997.0, 237.0, 319.0, 160.0, 556.0, 839.0, 478.0, 838.0, 160.0, 0.0, 160.0, 160.0, 160.0, 360.0, 479.0, 878.0, 239.0];
+  const mlOrd  = [1, 4, 5, 2, 2, 5, 4, 2, 6, 3, 4, 9, 8, 8, 1, 3, 2, 5, 6, 3, 6, 1, 0, 1, 1, 2, 3, 5, 4, 2];
+  new Chart(document.getElementById('mlChart'), {
+    type: 'bar',
+    data: {
+      labels: days,
+      datasets: [
+        { label: '美客多收入(¥)', data: mlRev,
+           backgroundColor: 'rgba(240,180,41,0.75)', borderRadius: 3, order: 2 },
+        { label: '订单数', data: mlOrd, type: 'line',
+           borderColor: '#B45309', borderWidth: 1.5, pointRadius: 2,
+           fill: false, order: 1, yAxisID: 'y2' }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { font: { size: 11 } } } },
+      scales: {
+        x: { ticks: { font: { size: 10 }, maxRotation: 0 } },
+        y:  { ticks: { font: { size: 10 }, callback: v => '¥'+Number(v).toLocaleString() } },
+        y2: { position: 'right', ticks: { font: { size: 10 } },
+               grid: { drawOnChartArea: false } }
       }
     }
   });
@@ -546,113 +728,536 @@
     </div>
 
   <div class="chart-card">
-    <div class="chart-title">📈 收入 vs 净利润趋势</div>
+    <div class="chart-title">📈 收入 vs 净利润趋势（2026年）</div>
     <div class="chart-wrap"><canvas id="chart1"></canvas></div>
   </div>
 
   <div class="chart-card">
-    <div class="chart-title">📉 毛利率 vs 净利率（%）</div>
+    <div class="chart-title">📉 毛利率 vs 净利率（%，2026年）</div>
     <div class="chart-wrap"><canvas id="chart2"></canvas></div>
   </div>
 
   <div class="note">
-    ⚠️ <strong>数据说明：</strong>2025年2-7月为人民币(¥)数据，来源于A1/A2报表；
-    2025年8月起为美元($)数据，来源于A3标准财务报表。两段数据不可直接比较金额大小，
-    但毛利率/净利率趋势具有参考价值。
+    📌 概览图表及财务三表仅展示 <strong>2026年</strong> 数据。
+    2025年度汇总请查看「📁 2025年度」标签页。
+  </div>
+</div>
+
+<!-- ══════ 利润表（2026年）══════ -->
+<div id="income" class="section">
+  <div class="table-card">
+    <div class="table-header">📋 利润表 · 2026年（Income Statement）</div>
+    
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>科目</th><th>2026-01<br><small>¥</small></th><th>2026-02<br><small>¥</small></th><th>2026-03<br><small>¥</small></th></tr></thead>
+          <tbody><tr class="section-row"><td class="label">营业收入</td><td class="">167,217</td><td class="">147,465</td><td class="">0</td></tr>
+<tr class="cost-row"><td class="label">退款</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr class=""><td class="label">其他收入</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr class="section-row"><td class="label">净营业额</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr class="cost-row"><td class="label">采购/物流成本</td><td class="">37,500</td><td class="">49,896</td><td class="">0</td></tr>
+<tr class="section-row"><td class="label">毛利润</td><td class="">129,717</td><td class="">97,569</td><td class="">0</td></tr>
+<tr class="section-row"><td class="label">毛利率</td><td class="pct-pos">77.6%</td><td class="pct-pos">66.2%</td><td class="pct-mid">0.0%</td></tr>
+<tr class="cost-row"><td class="label">广告费</td><td class="">30,907</td><td class="">12,212</td><td class="na">—</td></tr>
+<tr class="cost-row"><td class="label">FBA发货费</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr class="cost-row"><td class="label">平台促销</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr class="cost-row"><td class="label">平台费</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr class="cost-row"><td class="label">其他平台费</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr class="section-row"><td class="label">平台费合计</td><td class="">31,834</td><td class="">17,468</td><td class="na">—</td></tr>
+<tr class="cost-row"><td class="label">人工费用</td><td class="">87,675</td><td class="">85,687</td><td class="">0</td></tr>
+<tr class="cost-row"><td class="label">运营费用</td><td class="na">—</td><td class="na">—</td><td class="">0</td></tr>
+<tr class="cost-row"><td class="label">行政费用</td><td class="">1,608</td><td class="">9,393</td><td class="">0</td></tr>
+<tr class="cost-row"><td class="label">Cirket项目</td><td class="na">—</td><td class="na">—</td><td class="">0</td></tr>
+<tr class="section-row"><td class="label">营业利润</td><td class="negative">-96,681</td><td class="negative">-85,982</td><td class="na">—</td></tr>
+<tr class="section-row"><td class="label">净利润</td><td class="negative">-51,681</td><td class="negative">-10,982</td><td class="">0</td></tr>
+<tr class="section-row"><td class="label">净利率</td><td class="pct-neg">-30.9%</td><td class="pct-neg">-7.4%</td><td class="pct-mid">0.0%</td></tr>
+</tbody>
+        </table>
+        </div>
+  </div>
+</div>
+
+<!-- ══════ 资产负债表（2026年）══════ -->
+<div id="balance" class="section">
+  <div class="table-card">
+    <div class="table-header">🏦 资产负债表 · 2026年（Balance Sheet）单位：元</div>
+    
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>科目</th><th>2026-01</th><th>2026-02</th><th>2026-03</th></tr></thead>
+          <tbody><tr class="section-row"><td class="label">【资产】</td><td class="na"></td><td class="na"></td><td class="na"></td></tr>
+<tr><td class="label">货币资金</td><td class="">53,580</td><td class="">89,318</td><td class="">3,546</td></tr>
+<tr><td class="label">应收账款</td><td class="">102,108</td><td class="">93,865</td><td class="na">—</td></tr>
+<tr><td class="label">其他应收款</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr><td class="label">存货</td><td class="">100,000</td><td class="">343,429</td><td class="na">—</td></tr>
+<tr><td class="label">长期股权投资</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr class="section-row"><td class="label">【负债】</td><td class="na"></td><td class="na"></td><td class="na"></td></tr>
+<tr><td class="label">应付账款</td><td class="">0</td><td class="">0</td><td class="na">—</td></tr>
+<tr><td class="label">应付工资</td><td class="">0</td><td class="">0</td><td class="na">—</td></tr>
+<tr><td class="label">应交税金</td><td class="">0</td><td class="">0</td><td class="na">—</td></tr>
+<tr><td class="label">预提费用</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr class="section-row"><td class="label">【股东权益】</td><td class="na"></td><td class="na"></td><td class="na"></td></tr>
+<tr><td class="label">实收资本</td><td class="">0</td><td class="">1,224,000</td><td class="">920,000</td></tr>
+<tr><td class="label">盈余公积</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+</tbody>
+        </table>
+        </div>
+  </div>
+</div>
+
+<!-- ══════ 现金流量表（2026年）══════ -->
+<div id="cashflow" class="section">
+  <div class="table-card">
+    <div class="table-header">💰 现金流量表 · 2026年（Cash Flow Statement）单位：元</div>
+    
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>科目</th><th>2026-01</th><th>2026-02</th><th>2026-03</th></tr></thead>
+          <tbody><tr class="section-row"><td class="label">一、经营活动</td><td class="na"></td><td class="na"></td><td class="na"></td></tr>
+<tr class=""><td class="label">销售收款(RMB)</td><td class="">167,217</td><td class="">147,465</td><td class="">202,952</td></tr>
+<tr class=""><td class="label">销售收款(USD)</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr class=""><td class="label">采购支付</td><td class="">37,500</td><td class="">49,896</td><td class="">177,800</td></tr>
+<tr class=""><td class="label">员工薪酬</td><td class="">87,675</td><td class="">85,687</td><td class="na">—</td></tr>
+<tr class=""><td class="label">税费支付</td><td class="">2,611</td><td class="">2,571</td><td class="na">—</td></tr>
+<tr class=""><td class="label">其他经营流出(USD)</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr class="section-row"><td class="label">三、筹资活动</td><td class="na"></td><td class="na"></td><td class="na"></td></tr>
+<tr class=""><td class="label">股东注资</td><td class="">45,000</td><td class="">75,000</td><td class="">45,000</td></tr>
+<tr class="total-row"><td class="label">期末现金(RMB)</td><td class="total-cell">54,737</td><td class="total-cell">76,457</td><td class="total-cell">3,546</td></tr>
+<tr class=""><td class="label">期末现金(USD)</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+</tbody>
+        </table>
+        </div>
+  </div>
+</div>
+
+<!-- ══════ 2025年度汇总 ══════ -->
+<div id="y2025" class="section">
+  <div class="note">
+    📁 以下为 2025 年全年财务数据（2025-02 ~ 2025-12）。
+    2025年2-7月单位为人民币(¥)，2025年8月起为美元($)，两段数据不可直接合计。
+  </div>
+
+  <div class="table-card">
+    <div class="table-header">📋 2025年度 利润表</div>
+    
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>科目</th><th>2025-02<br><small>¥</small></th><th>2025-03<br><small>¥</small></th><th>2025-04<br><small>¥</small></th><th>2025-05<br><small>¥</small></th><th>2025-06<br><small>¥</small></th><th>2025-07<br><small>¥</small></th><th>2025-08<br><small>$</small></th><th>2025-09<br><small>$</small></th><th>2025-10<br><small>$</small></th><th>2025-12<br><small>$</small></th></tr></thead>
+          <tbody><tr class="section-row"><td class="label">营业收入</td><td class="">219,196</td><td class="">313,310</td><td class="">175,780</td><td class="">207,860</td><td class="">38,712</td><td class="">0</td><td class="">49,834</td><td class="">35,946</td><td class="">48,986</td><td class="">38,419</td></tr>
+<tr class="cost-row"><td class="label">退款</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">1,376</td><td class="">665</td><td class="">938</td><td class="">1,427</td></tr>
+<tr class=""><td class="label">其他收入</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">1,915</td><td class="">2,089</td><td class="">1,667</td><td class="">394</td></tr>
+<tr class="section-row"><td class="label">净营业额</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">50,374</td><td class="">37,369</td><td class="">49,714</td><td class="">37,386</td></tr>
+<tr class="cost-row"><td class="label">采购/物流成本</td><td class="">0</td><td class="">18,858</td><td class="">0</td><td class="">16,654</td><td class="">126</td><td class="">140,699</td><td class="">10,047</td><td class="">8,125</td><td class="">10,566</td><td class="">8,092</td></tr>
+<tr class="section-row"><td class="label">毛利润</td><td class="">219,196</td><td class="">294,452</td><td class="">175,780</td><td class="">191,205</td><td class="">38,586</td><td class="negative">-140,699</td><td class="">40,327</td><td class="">29,244</td><td class="">39,148</td><td class="">29,294</td></tr>
+<tr class="section-row"><td class="label">毛利率</td><td class="pct-pos">100.0%</td><td class="pct-pos">94.0%</td><td class="pct-pos">100.0%</td><td class="pct-pos">92.0%</td><td class="pct-pos">99.7%</td><td class="pct-mid">0.0%</td><td class="pct-pos">80.1%</td><td class="pct-pos">78.3%</td><td class="pct-pos">78.7%</td><td class="pct-pos">78.4%</td></tr>
+<tr class="cost-row"><td class="label">广告费</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">11,851</td><td class="">0</td><td class="">0</td><td class="">0</td></tr>
+<tr class="cost-row"><td class="label">FBA发货费</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="">0</td></tr>
+<tr class="cost-row"><td class="label">平台促销</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="">0</td></tr>
+<tr class="cost-row"><td class="label">平台费</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="">0</td></tr>
+<tr class="cost-row"><td class="label">其他平台费</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="">0</td></tr>
+<tr class="section-row"><td class="label">平台费合计</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">11,851</td><td class="">0</td><td class="">0</td><td class="">0</td></tr>
+<tr class="cost-row"><td class="label">人工费用</td><td class="">0</td><td class="">63,020</td><td class="">69,674</td><td class="">79,985</td><td class="">93,176</td><td class="">67,221</td><td class="">1,389</td><td class="">1,389</td><td class="">1,389</td><td class="">1,389</td></tr>
+<tr class="cost-row"><td class="label">运营费用</td><td class="">0</td><td class="">54,487</td><td class="">83,429</td><td class="">98,510</td><td class="">139,419</td><td class="">349,637</td><td class="">1,661</td><td class="">0</td><td class="">0</td><td class="">0</td></tr>
+<tr class="cost-row"><td class="label">行政费用</td><td class="">0</td><td class="">564</td><td class="">2,111</td><td class="">2,536</td><td class="">0</td><td class="">723</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr class="cost-row"><td class="label">Cirket项目</td><td class="">0</td><td class="">80,774</td><td class="">11,318</td><td class="">50,776</td><td class="">5,736</td><td class="">172,123</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr class="section-row"><td class="label">营业利润</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">28,476</td><td class="">29,244</td><td class="">39,148</td><td class="">29,294</td></tr>
+<tr class="section-row"><td class="label">净利润</td><td class="">199,756</td><td class="negative">-5,527</td><td class="negative">-18,160</td><td class="negative">-117,242</td><td class="negative">-224,729</td><td class="negative">-770,357</td><td class="">25,389</td><td class="">27,855</td><td class="">37,759</td><td class="">27,905</td></tr>
+<tr class="section-row"><td class="label">净利率</td><td class="pct-pos">91.1%</td><td class="pct-neg">-1.8%</td><td class="pct-neg">-10.3%</td><td class="pct-neg">-56.4%</td><td class="pct-neg">-580.5%</td><td class="pct-mid">0.0%</td><td class="pct-pos">50.4%</td><td class="pct-pos">74.5%</td><td class="pct-pos">76.0%</td><td class="pct-pos">74.6%</td></tr>
+</tbody>
+        </table>
+        </div>
+  </div>
+
+  <div class="table-card" style="margin-top:12px;">
+    <div class="table-header">🏦 2025年度 资产负债表</div>
+    
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>科目</th><th>2025-02</th><th>2025-03</th><th>2025-04</th><th>2025-05</th><th>2025-06</th><th>2025-07</th><th>2025-08</th><th>2025-09</th><th>2025-10</th><th>2025-12</th></tr></thead>
+          <tbody><tr class="section-row"><td class="label">【资产】</td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td></tr>
+<tr><td class="label">货币资金</td><td class="">0</td><td class="">21,764</td><td class="">27,329</td><td class="">25,149</td><td class="">49,177</td><td class="">29,660</td><td class="">106,426</td><td class="">268,090</td><td class="">154,461</td><td class="">9,313</td></tr>
+<tr><td class="label">应收账款</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">108,268</td><td class="">35,103</td><td class="">85,793</td><td class="na">—</td></tr>
+<tr><td class="label">其他应收款</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">48,087</td><td class="">27,529</td><td class="">nan</td><td class="na">—</td></tr>
+<tr><td class="label">存货</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">290,844</td><td class="">327,597</td><td class="">458,124</td><td class="na">—</td></tr>
+<tr><td class="label">长期股权投资</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="na">—</td></tr>
+<tr class="section-row"><td class="label">【负债】</td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td></tr>
+<tr><td class="label">应付账款</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">49,877</td><td class="">0</td><td class="">0</td><td class="na">—</td></tr>
+<tr><td class="label">应付工资</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">65,750</td><td class="">67,824</td><td class="">73,990</td><td class="na">—</td></tr>
+<tr><td class="label">应交税金</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">6,445</td><td class="">6,620</td><td class="">6,616</td><td class="na">—</td></tr>
+<tr><td class="label">预提费用</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">257,000</td><td class="">181,280</td><td class="">213,188</td><td class="na">—</td></tr>
+<tr class="section-row"><td class="label">【股东权益】</td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td></tr>
+<tr><td class="label">实收资本</td><td class="">920,000</td><td class="">920,000</td><td class="">920,000</td><td class="">920,000</td><td class="">920,000</td><td class="">920,000</td><td class="">700,000</td><td class="">nan</td><td class="">nan</td><td class="">920,000</td></tr>
+<tr><td class="label">盈余公积</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="negative">-532,446</td><td class="negative">-646,005</td><td class="">354,583</td><td class="na">—</td></tr>
+</tbody>
+        </table>
+        </div>
+  </div>
+
+  <div class="table-card" style="margin-top:12px;">
+    <div class="table-header">💰 2025年度 现金流量表</div>
+    
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>科目</th><th>2025-02</th><th>2025-03</th><th>2025-04</th><th>2025-05</th><th>2025-06</th><th>2025-07</th><th>2025-08</th><th>2025-09</th><th>2025-10</th><th>2025-12</th></tr></thead>
+          <tbody><tr class="section-row"><td class="label">一、经营活动</td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td></tr>
+<tr class=""><td class="label">销售收款(RMB)</td><td class="">0</td><td class="">266,868</td><td class="">226,626</td><td class="">268,898</td><td class="">276,691</td><td class="">564,059</td><td class="">100,048</td><td class="">74,302</td><td class="">nan</td><td class="">215,003</td></tr>
+<tr class=""><td class="label">销售收款(USD)</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">26,772</td><td class="">24,454</td><td class="">nan</td><td class="na">—</td></tr>
+<tr class=""><td class="label">采购支付</td><td class="">0</td><td class="">238,063</td><td class="">182,622</td><td class="">274,325</td><td class="">257,705</td><td class="">598,232</td><td class="">27,485</td><td class="">157,455</td><td class="">173,510</td><td class="">198,607</td></tr>
+<tr class=""><td class="label">员工薪酬</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">65,739</td><td class="">74,444</td><td class="">80,606</td><td class="na">—</td></tr>
+<tr class=""><td class="label">税费支付</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">6,596</td><td class="">69</td><td class="">21</td><td class="na">—</td></tr>
+<tr class=""><td class="label">其他经营流出(USD)</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">12,189</td><td class="">6,192</td><td class="">151</td><td class="na">—</td></tr>
+<tr class="section-row"><td class="label">三、筹资活动</td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td></tr>
+<tr class=""><td class="label">股东注资</td><td class="">0</td><td class="">160,780</td><td class="">70,994</td><td class="">165,000</td><td class="">244,000</td><td class="">475,000</td><td class="">40,000</td><td class="">210,000</td><td class="">50,000</td><td class="">135,000</td></tr>
+<tr class="total-row"><td class="label">期末现金(RMB)</td><td class="total-cell">0</td><td class="total-cell">21,764</td><td class="total-cell">27,329</td><td class="total-cell">25,149</td><td class="total-cell">49,177</td><td class="total-cell">29,660</td><td class="total-cell">13,928</td><td class="total-cell">124,221</td><td class="total-cell">9,698</td><td class="total-cell">9,313</td></tr>
+<tr class=""><td class="label">期末现金(USD)</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">16,302</td><td class="">20,178</td><td class="">20,332</td><td class="na">—</td></tr>
+</tbody>
+        </table>
+        </div>
+  </div>
+</div>
+
+<!-- ══════ 库存 ══════ -->
+
+<div id="inventory" class="section">
+
+  <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr;">
+    <div class="kpi-card kpi-blue">
+      <div class="kpi-title">库存总货值</div>
+      <div class="kpi-value">¥380,327</div>
+      <div class="kpi-sub">含所有仓库</div>
+    </div>
+    <div class="kpi-card kpi-purple">
+      <div class="kpi-title">SKU 数量</div>
+      <div class="kpi-value">37</div>
+      <div class="kpi-sub">个有效 SKU</div>
+    </div>
+    <div class="kpi-card kpi-green">
+      <div class="kpi-title">数据文件</div>
+      <div class="kpi-value" style="font-size:12px;line-height:1.4;">最新2026年3-30库存货值.xlsx</div>
+      <div class="kpi-sub">手动更新</div>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-title">🏭 按仓库分布</div>
+    <div style="padding:4px 0;"><span class="pill-plat">跨跃猫 海外仓 <strong>¥73,305</strong></span> <span class="pill-plat">亚马逊仓 <strong>¥46,508</strong></span> <span class="pill-plat">中东 <strong>¥51,336</strong></span> <span class="pill-plat">家庭仓 <strong>¥209,178</strong></span> </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-header">📦 库存货值明细（单位：人民币）</div>
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>SKU</th><th>品名</th><th>现有库存</th><th>途中</th>
+          <th>单价</th><th>总价</th><th>备注</th>
+        </tr>
+      </thead>
+      <tbody><tr class="section-row"><td class="label" colspan="7">📍 跨跃猫 海外仓</td></tr><tr>
+          <td class="label" style="font-size:11px;">200120250722</td>
+          <td>双槽充电底座(PS5)</td>
+          <td style="text-align:right;">210</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥32</td>
+          <td style="text-align:right;font-weight:600;">¥6,720</td>
+          <td></td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">4032744893</td>
+          <td>PS5手柄电池</td>
+          <td style="text-align:right;">717</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥25</td>
+          <td style="text-align:right;font-weight:600;">¥17,925</td>
+          <td></td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">5676727181XAA</td>
+          <td>电池仓8AA</td>
+          <td style="text-align:right;">688</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥47,472</td>
+          <td></td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">CCC8AAx2</td>
+          <td>两颗装AA</td>
+          <td style="text-align:right;">49</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥12</td>
+          <td style="text-align:right;font-weight:600;">¥608</td>
+          <td></td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">CCCAAAx2</td>
+          <td>两颗装AAA</td>
+          <td style="text-align:right;">50</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥12</td>
+          <td style="text-align:right;font-weight:600;">¥580</td>
+          <td></td>
+        </tr><tr class="section-row"><td class="label" colspan="7">📍 亚马逊仓</td></tr><tr>
+          <td class="label" style="font-size:11px;">X004TE14WH</td>
+          <td>4x4电池仓</td>
+          <td style="text-align:right;">122</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥8,418</td>
+          <td>一姐店铺库存</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X004VEB7BN</td>
+          <td>电池仓8AA</td>
+          <td style="text-align:right;">28</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥1,932</td>
+          <td>一姐店铺库存</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X004RWGG7J</td>
+          <td>switch2四合一座充</td>
+          <td style="text-align:right;">269</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥32</td>
+          <td style="text-align:right;font-weight:600;">¥8,608</td>
+          <td style="color:#B45309;font-size:10px;">清货 卖</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X004WU43PX</td>
+          <td>双槽充电底座(PS5)</td>
+          <td style="text-align:right;">0</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥32</td>
+          <td style="text-align:right;font-weight:600;">¥0</td>
+          <td>A2美国站库存</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X004M1FP95</td>
+          <td>电池仓8AA</td>
+          <td style="text-align:right;">60</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥4,140</td>
+          <td style="color:#B45309;font-size:10px;">佳仪操作多次不可移除</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X004RVLLMP</td>
+          <td>PS5座充</td>
+          <td style="text-align:right;">72</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥25</td>
+          <td style="text-align:right;font-weight:600;">¥1,800</td>
+          <td style="color:#B45309;font-size:10px;">清货 卖</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X004M4YNFJ</td>
+          <td>电池仓4x4</td>
+          <td style="text-align:right;">140</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥9,660</td>
+          <td style="color:#B45309;font-size:10px;">佳仪操作多次不可移除</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X004Y8G2EN</td>
+          <td>PS5手柄电池</td>
+          <td style="text-align:right;">478</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥25</td>
+          <td style="text-align:right;font-weight:600;">¥11,950</td>
+          <td style="color:#B45309;font-size:10px;">退仓操作中</td>
+        </tr><tr class="section-row"><td class="label" colspan="7">📍 中东</td></tr><tr>
+          <td class="label" style="font-size:11px;">X002E91FCP</td>
+          <td>电池仓4x4</td>
+          <td style="text-align:right;">8</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥552</td>
+          <td style="color:#B45309;font-size:10px;">退仓操作中</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X002H7VZ97</td>
+          <td>电池仓4x4</td>
+          <td style="text-align:right;">0</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥0</td>
+          <td>A2阿联酋库存</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X002FCBDS7</td>
+          <td>电池仓8AA</td>
+          <td style="text-align:right;">0</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥0</td>
+          <td>A2阿联酋库存</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X002FZTPBL</td>
+          <td>PS5手柄电池</td>
+          <td style="text-align:right;">0</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥25</td>
+          <td style="text-align:right;font-weight:600;">¥0</td>
+          <td>A2阿联酋库存</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X002E9L8DV</td>
+          <td>电池仓8AA</td>
+          <td style="text-align:right;">2</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥138</td>
+          <td style="color:#B45309;font-size:10px;">退仓操作中</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X002FBOMZ9</td>
+          <td>电池仓8AA</td>
+          <td style="text-align:right;">0</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥0</td>
+          <td>A2阿联酋库存</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">TRB44-AEG X002I9W56V</td>
+          <td>4+4电池仓</td>
+          <td style="text-align:right;">163</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥11,247</td>
+          <td>A4店铺中东站</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">TRB8-AEG X002I9W1B5</td>
+          <td>8AA电池仓</td>
+          <td style="text-align:right;">191</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥13,179</td>
+          <td>A4店铺中东站</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">AE海外仓：</td>
+          <td>电池仓4x4</td>
+          <td style="text-align:right;">181</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥12,489</td>
+          <td>ciel</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">AE海外仓：</td>
+          <td>电池仓8AA</td>
+          <td style="text-align:right;">199</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥13,731</td>
+          <td>ciel</td>
+        </tr><tr class="section-row"><td class="label" colspan="7">📍 家庭仓</td></tr><tr>
+          <td class="label" style="font-size:11px;">X004FT57KV</td>
+          <td>护肝片2瓶</td>
+          <td style="text-align:right;">285</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥112</td>
+          <td style="text-align:right;font-weight:600;">¥31,920</td>
+          <td style="color:#B45309;font-size:10px;">移家庭仓中</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X004FTJF1X</td>
+          <td>护肝片3瓶</td>
+          <td style="text-align:right;">1</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥168</td>
+          <td style="text-align:right;font-weight:600;">¥168</td>
+          <td style="color:#B45309;font-size:10px;">移家庭仓中</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">B0DD7GGCC3</td>
+          <td>护肝片</td>
+          <td style="text-align:right;">2</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥56</td>
+          <td style="text-align:right;font-weight:600;">¥112</td>
+          <td style="color:#B45309;font-size:10px;">移家庭仓中</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X004S7BBUP</td>
+          <td>护肝片</td>
+          <td style="text-align:right;">744</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥56</td>
+          <td style="text-align:right;font-weight:600;">¥41,664</td>
+          <td style="color:#B45309;font-size:10px;">移家庭仓中</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">ckbcm7037</td>
+          <td>电池仓4x4</td>
+          <td style="text-align:right;">1,028</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥70,932</td>
+          <td>ciel</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">ckbcm4401</td>
+          <td>电池仓4x4</td>
+          <td style="text-align:right;">2</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥138</td>
+          <td>ciel</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">ckbcm7036</td>
+          <td>电池仓8AA</td>
+          <td style="text-align:right;">332</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥22,908</td>
+          <td>ciel</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">ckbcm8aa</td>
+          <td>电池仓8AA</td>
+          <td style="text-align:right;">18</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥1,242</td>
+          <td>ciel</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">wxcdb2</td>
+          <td>PS5手柄电池</td>
+          <td style="text-align:right;">202</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥25</td>
+          <td style="text-align:right;font-weight:600;">¥5,050</td>
+          <td>ciel</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X004TVO7M9</td>
+          <td>Oree 薰衣草</td>
+          <td style="text-align:right;">794</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥15</td>
+          <td style="text-align:right;font-weight:600;">¥11,950</td>
+          <td>A3店铺库存</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">X004TVSFR7</td>
+          <td>Oree 薄荷</td>
+          <td style="text-align:right;">793</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥15</td>
+          <td style="text-align:right;font-weight:600;">¥11,935</td>
+          <td>A3店铺库存</td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">深圳锦和</td>
+          <td>电池仓8AA(中东标签)</td>
+          <td style="text-align:right;">60</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥4,140</td>
+          <td></td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">深圳锦和</td>
+          <td>电池仓4x4(中东标签)</td>
+          <td style="text-align:right;">60</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥69</td>
+          <td style="text-align:right;font-weight:600;">¥4,140</td>
+          <td></td>
+        </tr><tr>
+          <td class="label" style="font-size:11px;">深圳锦和</td>
+          <td>双槽充电底座(PS5)</td>
+          <td style="text-align:right;">90</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">¥32</td>
+          <td style="text-align:right;font-weight:600;">¥2,880</td>
+          <td></td>
+        </tr></tbody>
+    </table>
+    </div>
   </div>
 
   <div class="note">
-    📌 <strong>关键发现：</strong>公司从 2025年8月 起实现月度盈利，
-    净利率维持在 50%-94% 区间（基于美元店铺数据）。
-    2025年上半年亏损主因：Cirket项目前期投入 + 人工/运营扩张期成本。
+    📌 库存数据为手工维护，领星 ERP API 库存对接待开发。如需更新，替换 raw-data/ 下库存货值文件后重新生成报告。
   </div>
-</div>
 
-<!-- ══════ 利润表 ══════ -->
-<div id="income" class="section">
-  <div class="table-card">
-    <div class="table-header">📋 利润表（Income Statement）</div>
-    
-        <div class="table-wrap">
-        <table>
-          <thead><tr><th>科目</th><th>2025-02<br><small>¥</small></th><th>2025-03<br><small>¥</small></th><th>2025-04<br><small>¥</small></th><th>2025-05<br><small>¥</small></th><th>2025-06<br><small>¥</small></th><th>2025-07<br><small>¥</small></th><th>2025-08<br><small>$</small></th><th>2025-09<br><small>$</small></th><th>2025-10<br><small>$</small></th><th>2025-12<br><small>$</small></th><th>2026-01<br><small>¥</small></th><th>2026-02<br><small>¥</small></th><th>2026-03<br><small>¥</small></th></tr></thead>
-          <tbody><tr class="section-row"><td class="label">营业收入</td><td class="">219,196</td><td class="">313,310</td><td class="">175,780</td><td class="">207,860</td><td class="">38,712</td><td class="">0</td><td class="">49,834</td><td class="">35,946</td><td class="">48,986</td><td class="">38,419</td><td class="">167,217</td><td class="">147,465</td><td class="">0</td></tr>
-<tr class="cost-row"><td class="label">退款</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">1,376</td><td class="">665</td><td class="">938</td><td class="">1,427</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-<tr class=""><td class="label">其他收入</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">1,915</td><td class="">2,089</td><td class="">1,667</td><td class="">394</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-<tr class="section-row"><td class="label">净营业额</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">50,374</td><td class="">37,369</td><td class="">49,714</td><td class="">37,386</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-<tr class="cost-row"><td class="label">采购/物流成本</td><td class="">0</td><td class="">18,858</td><td class="">0</td><td class="">16,654</td><td class="">126</td><td class="">140,699</td><td class="">10,047</td><td class="">8,125</td><td class="">10,566</td><td class="">8,092</td><td class="">37,500</td><td class="">49,896</td><td class="">0</td></tr>
-<tr class="section-row"><td class="label">毛利润</td><td class="">219,196</td><td class="">294,452</td><td class="">175,780</td><td class="">191,205</td><td class="">38,586</td><td class="negative">-140,699</td><td class="">40,327</td><td class="">29,244</td><td class="">39,148</td><td class="">29,294</td><td class="">129,717</td><td class="">97,569</td><td class="">0</td></tr>
-<tr class="section-row"><td class="label">毛利率</td><td class="pct-pos">100.0%</td><td class="pct-pos">94.0%</td><td class="pct-pos">100.0%</td><td class="pct-pos">92.0%</td><td class="pct-pos">99.7%</td><td class="pct-mid">0.0%</td><td class="pct-pos">80.1%</td><td class="pct-pos">78.3%</td><td class="pct-pos">78.7%</td><td class="pct-pos">78.4%</td><td class="pct-pos">77.6%</td><td class="pct-pos">66.2%</td><td class="pct-mid">0.0%</td></tr>
-<tr class="cost-row"><td class="label">广告费</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">11,851</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="">30,907</td><td class="">12,212</td><td class="na">—</td></tr>
-<tr class="cost-row"><td class="label">FBA发货费</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-<tr class="cost-row"><td class="label">平台促销</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-<tr class="cost-row"><td class="label">平台费</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-<tr class="cost-row"><td class="label">其他平台费</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-<tr class="section-row"><td class="label">平台费合计</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">11,851</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="">31,834</td><td class="">17,468</td><td class="na">—</td></tr>
-<tr class="cost-row"><td class="label">人工费用</td><td class="">0</td><td class="">63,020</td><td class="">69,674</td><td class="">79,985</td><td class="">93,176</td><td class="">67,221</td><td class="">1,389</td><td class="">1,389</td><td class="">1,389</td><td class="">1,389</td><td class="">87,675</td><td class="">85,687</td><td class="">0</td></tr>
-<tr class="cost-row"><td class="label">运营费用</td><td class="">0</td><td class="">54,487</td><td class="">83,429</td><td class="">98,510</td><td class="">139,419</td><td class="">349,637</td><td class="">1,661</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="na">—</td><td class="na">—</td><td class="">0</td></tr>
-<tr class="cost-row"><td class="label">行政费用</td><td class="">0</td><td class="">564</td><td class="">2,111</td><td class="">2,536</td><td class="">0</td><td class="">723</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">1,608</td><td class="">9,393</td><td class="">0</td></tr>
-<tr class="cost-row"><td class="label">Cirket项目</td><td class="">0</td><td class="">80,774</td><td class="">11,318</td><td class="">50,776</td><td class="">5,736</td><td class="">172,123</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0</td></tr>
-<tr class="section-row"><td class="label">营业利润</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">28,476</td><td class="">29,244</td><td class="">39,148</td><td class="">29,294</td><td class="negative">-96,681</td><td class="negative">-85,982</td><td class="na">—</td></tr>
-<tr class="section-row"><td class="label">净利润</td><td class="">199,756</td><td class="negative">-5,527</td><td class="negative">-18,160</td><td class="negative">-117,242</td><td class="negative">-224,729</td><td class="negative">-770,357</td><td class="">25,389</td><td class="">27,855</td><td class="">37,759</td><td class="">27,905</td><td class="negative">-51,681</td><td class="negative">-10,982</td><td class="">0</td></tr>
-<tr class="section-row"><td class="label">净利率</td><td class="pct-pos">91.1%</td><td class="pct-neg">-1.8%</td><td class="pct-neg">-10.3%</td><td class="pct-neg">-56.4%</td><td class="pct-neg">-580.5%</td><td class="pct-mid">0.0%</td><td class="pct-pos">50.4%</td><td class="pct-pos">74.5%</td><td class="pct-pos">76.0%</td><td class="pct-pos">74.6%</td><td class="pct-neg">-30.9%</td><td class="pct-neg">-7.4%</td><td class="pct-mid">0.0%</td></tr>
-</tbody>
-        </table>
-        </div>
-  </div>
-</div>
-
-<!-- ══════ 资产负债表 ══════ -->
-<div id="balance" class="section">
-  <div class="table-card">
-    <div class="table-header">🏦 资产负债表（Balance Sheet）单位：元</div>
-    
-        <div class="table-wrap">
-        <table>
-          <thead><tr><th>科目</th><th>2025-02</th><th>2025-03</th><th>2025-04</th><th>2025-05</th><th>2025-06</th><th>2025-07</th><th>2025-08</th><th>2025-09</th><th>2025-10</th><th>2025-12</th><th>2026-01</th><th>2026-02</th><th>2026-03</th></tr></thead>
-          <tbody><tr class="section-row"><td class="label">【资产】</td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td></tr>
-<tr><td class="label">货币资金</td><td class="">0</td><td class="">21,764</td><td class="">27,329</td><td class="">25,149</td><td class="">49,177</td><td class="">29,660</td><td class="">106,426</td><td class="">268,090</td><td class="">154,461</td><td class="">9,313</td><td class="">53,580</td><td class="">89,318</td><td class="">3,546</td></tr>
-<tr><td class="label">应收账款</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">108,268</td><td class="">35,103</td><td class="">85,793</td><td class="na">—</td><td class="">102,108</td><td class="">93,865</td><td class="na">—</td></tr>
-<tr><td class="label">其他应收款</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">48,087</td><td class="">27,529</td><td class="">nan</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-<tr><td class="label">存货</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">290,844</td><td class="">327,597</td><td class="">458,124</td><td class="na">—</td><td class="">100,000</td><td class="">343,429</td><td class="na">—</td></tr>
-<tr><td class="label">长期股权投资</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-<tr class="section-row"><td class="label">【负债】</td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td></tr>
-<tr><td class="label">应付账款</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">49,877</td><td class="">0</td><td class="">0</td><td class="na">—</td><td class="">0</td><td class="">0</td><td class="na">—</td></tr>
-<tr><td class="label">应付工资</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">65,750</td><td class="">67,824</td><td class="">73,990</td><td class="na">—</td><td class="">0</td><td class="">0</td><td class="na">—</td></tr>
-<tr><td class="label">应交税金</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">6,445</td><td class="">6,620</td><td class="">6,616</td><td class="na">—</td><td class="">0</td><td class="">0</td><td class="na">—</td></tr>
-<tr><td class="label">预提费用</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">257,000</td><td class="">181,280</td><td class="">213,188</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-<tr class="section-row"><td class="label">【股东权益】</td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td></tr>
-<tr><td class="label">实收资本</td><td class="">920,000</td><td class="">920,000</td><td class="">920,000</td><td class="">920,000</td><td class="">920,000</td><td class="">920,000</td><td class="">700,000</td><td class="">nan</td><td class="">nan</td><td class="">920,000</td><td class="">0</td><td class="">1,224,000</td><td class="">920,000</td></tr>
-<tr><td class="label">盈余公积</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="negative">-532,446</td><td class="negative">-646,005</td><td class="">354,583</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-</tbody>
-        </table>
-        </div>
-  </div>
-</div>
-
-<!-- ══════ 现金流量表 ══════ -->
-<div id="cashflow" class="section">
-  <div class="table-card">
-    <div class="table-header">💰 现金流量表（Cash Flow Statement）单位：元</div>
-    
-        <div class="table-wrap">
-        <table>
-          <thead><tr><th>科目</th><th>2025-02</th><th>2025-03</th><th>2025-04</th><th>2025-05</th><th>2025-06</th><th>2025-07</th><th>2025-08</th><th>2025-09</th><th>2025-10</th><th>2025-12</th><th>2026-01</th><th>2026-02</th><th>2026-03</th></tr></thead>
-          <tbody><tr class="section-row"><td class="label">一、经营活动</td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td></tr>
-<tr class=""><td class="label">销售收款(RMB)</td><td class="">0</td><td class="">266,868</td><td class="">226,626</td><td class="">268,898</td><td class="">276,691</td><td class="">564,059</td><td class="">100,048</td><td class="">74,302</td><td class="">nan</td><td class="">215,003</td><td class="">167,217</td><td class="">147,465</td><td class="">202,952</td></tr>
-<tr class=""><td class="label">销售收款(USD)</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">26,772</td><td class="">24,454</td><td class="">nan</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-<tr class=""><td class="label">采购支付</td><td class="">0</td><td class="">238,063</td><td class="">182,622</td><td class="">274,325</td><td class="">257,705</td><td class="">598,232</td><td class="">27,485</td><td class="">157,455</td><td class="">173,510</td><td class="">198,607</td><td class="">37,500</td><td class="">49,896</td><td class="">177,800</td></tr>
-<tr class=""><td class="label">员工薪酬</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">65,739</td><td class="">74,444</td><td class="">80,606</td><td class="na">—</td><td class="">87,675</td><td class="">85,687</td><td class="na">—</td></tr>
-<tr class=""><td class="label">税费支付</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">6,596</td><td class="">69</td><td class="">21</td><td class="na">—</td><td class="">2,611</td><td class="">2,571</td><td class="na">—</td></tr>
-<tr class=""><td class="label">其他经营流出(USD)</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">12,189</td><td class="">6,192</td><td class="">151</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-<tr class="section-row"><td class="label">三、筹资活动</td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td><td class="na"></td></tr>
-<tr class=""><td class="label">股东注资</td><td class="">0</td><td class="">160,780</td><td class="">70,994</td><td class="">165,000</td><td class="">244,000</td><td class="">475,000</td><td class="">40,000</td><td class="">210,000</td><td class="">50,000</td><td class="">135,000</td><td class="">45,000</td><td class="">75,000</td><td class="">45,000</td></tr>
-<tr class="total-row"><td class="label">期末现金(RMB)</td><td class="total-cell">0</td><td class="total-cell">21,764</td><td class="total-cell">27,329</td><td class="total-cell">25,149</td><td class="total-cell">49,177</td><td class="total-cell">29,660</td><td class="total-cell">13,928</td><td class="total-cell">124,221</td><td class="total-cell">9,698</td><td class="total-cell">9,313</td><td class="total-cell">54,737</td><td class="total-cell">76,457</td><td class="total-cell">3,546</td></tr>
-<tr class=""><td class="label">期末现金(USD)</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">16,302</td><td class="">20,178</td><td class="">20,332</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-</tbody>
-        </table>
-        </div>
-  </div>
 </div>
 
 <div class="footer">锦和科技财务报告 · 由财务分析系统自动生成</div>
@@ -667,11 +1272,11 @@ function showTab(id) {
 // 默认显示每日看板
 document.getElementById('daily').classList.add('active');
 
-const months    = ["2025-02(\u00a5)", "2025-03(\u00a5)", "2025-04(\u00a5)", "2025-05(\u00a5)", "2025-06(\u00a5)", "2025-08($)", "2025-09($)", "2025-10($)", "2025-12($)", "2026-01(\u00a5)", "2026-02(\u00a5)"];
-const revenue   = [219196.25, 313309.79, 175779.76, 207859.6, 38712.05, 49834.21, 35945.84, 48985.71, 38419.34, 167216.95, 147464.88];
-const profit    = [199756.25, -5527.19, -18159.99, -117241.75, -224728.64, 25389.28, 27855.45, 37758.77, 27905.02, -51680.69, -10981.99];
-const marginNet = [91.1, -1.8, -10.3, -56.4, -580.5, 50.4, 74.5, 76.0, 74.6, -30.9, -7.4];
-const marginGross = [100.0, 94.0, 100.0, 92.0, 99.7, 80.1, 78.3, 78.7, 78.4, 77.6, 66.2];
+const months    = ["2026-01(\u00a5)", "2026-02(\u00a5)"];
+const revenue   = [167216.95, 147464.88];
+const profit    = [-51680.69, -10981.99];
+const marginNet = [-30.9, -7.4];
+const marginGross = [77.6, 66.2];
 
 const commonOpts = {
   responsive: true, maintainAspectRatio: false,
