@@ -182,7 +182,7 @@
 <div id="main-content">
 <div class="header">
   <h1>锦和科技 · 财务报告</h1>
-  <div class="subtitle">生成时间：2026年04月04日 06:46 · 数据覆盖 2025-02 至 2026-03</div>
+  <div class="subtitle">生成时间：2026年04月04日 06:47 · 数据覆盖 2025-02 至 2026-03</div>
 </div>
 
 <div class="tabs">
@@ -1682,17 +1682,17 @@ function showOpsMonth(ym){
 </div>
 </div>
 <script>
-function showSettMonth(ym) {{
-  document.querySelectorAll('.sett-month').forEach(el => el.style.display = 'none');
+function showSettMonth(ym) {
+  document.querySelectorAll('.sett-month').forEach(function(el) { el.style.display = 'none'; });
   var target = document.getElementById('settMonth_' + ym);
   if (target) target.style.display = 'block';
   var parent = target ? target.closest('.section') : null;
-  if (parent) {{
-    parent.querySelectorAll('.ops-subtab').forEach(function(btn) {{
+  if (parent) {
+    parent.querySelectorAll('.ops-subtab').forEach(function(btn) {
       btn.classList.toggle('ops-subtab-active', btn.textContent.includes(parseInt(ym.split('-')[1]) + '月'));
-    }});
-  }}
-}}
+    });
+  }
+}
 </script>
 
 
