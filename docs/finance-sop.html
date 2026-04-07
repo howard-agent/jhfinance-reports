@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财务部 SOP 员工手册 — 深圳市锦和科技有限公司</title>
+<style>
+:root {
+  --primary: #7c3aed;
+  --primary-dark: #5b21b6;
+  --accent: #a78bfa;
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --text: #2c3e50;
+  --text-light: #6b7c93;
+  --border: #e2e8f0;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+}
+.header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: .3rem; }
+.header .subtitle { font-size: .9rem; opacity: .85; }
+/* Navigation */
+.nav {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: .5rem 1rem;
+  position: sticky;
+  top: 72px;
+  z-index: 99;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.nav a {
+  display: inline-block;
+  padding: .5rem .8rem;
+  margin: .2rem;
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: .85rem;
+  border-radius: 6px;
+  transition: all .2s;
+}
+.nav a:hover, .nav a.active { background: var(--primary); color: white; }
+/* Main content */
+.container { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+/* Section */
+.section {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  scroll-margin-top: 140px;
+}
+.section h2 {
+  font-size: 1.25rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.section h3 {
+  font-size: 1.05rem;
+  color: var(--text);
+  margin: 1.2rem 0 .6rem;
+  padding-left: .5rem;
+  border-left: 3px solid var(--primary);
+}
+.section p { font-size: .9rem; color: var(--text); margin-bottom: .5rem; }
+/* Tag / Badge */
+.tag {
+  display: inline-block;
+  padding: .15rem .5rem;
+  border-radius: 4px;
+  font-size: .75rem;
+  font-weight: 600;
+  margin-right: .3rem;
+}
+.tag-time    { background: #dbeafe; color: #1e40af; }
+.tag-daily   { background: #d1fae5; color: #065f46; }
+.tag-weekly  { background: #fef3c7; color: #92400e; }
+.tag-monthly { background: #ede9fe; color: #5b21b6; }
+.tag-urgent  { background: #fee2e2; color: #991b1b; }
+.tag-tool    { background: #f3e8ff; color: #6b21a8; }
+.tag-info    { background: #dbeafe; color: #1e40af; }
+/* Checklist */
+.checklist { list-style: none; padding: 0; }
+.checklist li {
+  padding: .6rem .8rem;
+  margin: .4rem 0;
+  background: var(--bg);
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  font-size: .9rem;
+  line-height: 1.6;
+}
+.checklist li .num {
+  background: var(--primary);
+  color: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.checklist li .content { flex: 1; }
+.checklist li .detail { color: var(--text-light); font-size: .82rem; margin-top: .2rem; }
+/* Table */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .85rem;
+  margin: .8rem 0;
+}
+.info-table th {
+  background: var(--primary);
+  color: white;
+  padding: .6rem .8rem;
+  text-align: left;
+  font-weight: 600;
+}
+.info-table td {
+  padding: .5rem .8rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.info-table tr:nth-child(even) td { background: #f8fafc; }
+/* Callout */
+.callout {
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  font-size: .88rem;
+}
+.callout-info    { background: #eff6ff; border-left: 4px solid var(--info); }
+.callout-warn    { background: #fffbeb; border-left: 4px solid var(--warning); }
+.callout-danger  { background: #fef2f2; border-left: 4px solid var(--danger); }
+.callout-success { background: #ecfdf5; border-left: 4px solid var(--success); }
+.callout strong  { display: block; margin-bottom: .3rem; }
+/* Flow chart */
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+.flow-step {
+  background: var(--primary);
+  color: white;
+  padding: .4rem .8rem;
+  border-radius: 6px;
+  font-size: .8rem;
+  font-weight: 600;
+  text-align: center;
+}
+.flow-arrow { color: var(--text-light); font-size: 1.2rem; }
+/* KPI card row */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: .8rem;
+  margin: 1rem 0;
+}
+.kpi-card {
+  background: var(--bg);
+  border-radius: 8px;
+  padding: .8rem 1rem;
+  text-align: center;
+}
+.kpi-card .label  { font-size: .78rem; color: var(--text-light); }
+.kpi-card .value  { font-size: 1.3rem; font-weight: 700; color: var(--primary-dark); margin: .3rem 0; }
+.kpi-card .target { font-size: .75rem; color: var(--success); }
+/* Two-column grid */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: .8rem 0;
+}
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-light);
+  font-size: .8rem;
+}
+/* Print */
+@media print {
+  .header { position: static; }
+  .nav { display: none; }
+  .section { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+}
+/* Mobile */
+@media (max-width: 640px) {
+  .header h1 { font-size: 1.3rem; }
+  .section { padding: 1rem; }
+  .kpi-row { grid-template-columns: 1fr 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>财务部 SOP 员工手册</h1>
+  <div class="subtitle">深圳市锦和科技有限公司 — 跨境电商财务标准操作流程</div>
+</div>
+
+<div class="nav" id="topnav">
+  <a href="#overview"    class="active">岗位概述</a>
+  <a href="#monthend">月结流程</a>
+  <a href="#reimbursement">报销审批</a>
+  <a href="#receivable">应收管理</a>
+  <a href="#payable">应付管理</a>
+  <a href="#forex">多币种管理</a>
+  <a href="#daily-ops">日常操作</a>
+  <a href="#kpi">KPI指标</a>
+  <a href="#tools">工具清单</a>
+  <a href="#emergency">应急处理</a>
+  <a href="#appendix">附录</a>
+</div>
+
+<div class="container">
+
+<!-- ==================== 岗位概述 ==================== -->
+<div class="section" id="overview">
+  <h2>一、岗位概述</h2>
+  <p>深圳市锦和科技有限公司财务部负责全公司跨境电商业务的财务核算、资金管理与报表编制。业务平台覆盖 Amazon、TikTok Shop、Walmart、MercadoLibre、Temu 五大平台，收款账户含香港诚谦、国内公账及内账（老板账）。本手册规定财务各岗位的标准操作流程，确保数据准确、流程可追溯、合规无遗漏。</p>
+
+  <h3>核心职责矩阵</h3>
+  <table class="info-table">
+    <tr><th>职责</th><th>频率</th><th>负责人</th><th>优先级</th></tr>
+    <tr><td>飞书多维表格到账记录录入</td><td>每日</td><td>财务专员</td><td><span class="tag tag-urgent">必做</span></td></tr>
+    <tr><td>银行流水核对（三账户）</td><td>每日</td><td>财务专员</td><td><span class="tag tag-urgent">必做</span></td></tr>
+    <tr><td>领星ERP数据核对</td><td>每日</td><td>财务专员</td><td><span class="tag tag-daily">重要</span></td></tr>
+    <tr><td>平台回款跟踪与对账</td><td>每周</td><td>财务主管</td><td><span class="tag tag-daily">重要</span></td></tr>
+    <tr><td>供应商付款执行</td><td>按需</td><td>财务主管</td><td><span class="tag tag-daily">重要</span></td></tr>
+    <tr><td>报销审核与付款</td><td>每周</td><td>财务主管</td><td><span class="tag tag-weekly">常规</span></td></tr>
+    <tr><td>月度财务三表生成</td><td>每月</td><td>财务主管</td><td><span class="tag tag-urgent">必做</span></td></tr>
+    <tr><td>MercadoLibre 分成结算</td><td>每月</td><td>财务主管</td><td><span class="tag tag-monthly">月度</span></td></tr>
+    <tr><td>税务申报</td><td>每月/季度</td><td>财务主管</td><td><span class="tag tag-monthly">月度</span></td></tr>
+    <tr><td>汇率更新（costs_config.json）</td><td>每月</td><td>财务主管</td><td><span class="tag tag-monthly">月度</span></td></tr>
+  </table>
+
+  <h3>工作时间与时区说明</h3>
+  <div class="callout callout-info">
+    <strong>工作时间：北京时间 09:30 - 18:30</strong>
+    跨境电商财务需关注多时区平台结算节点：<br>
+    &bull; Amazon（美国东部）：平台结算周期每两周，北京时间对应前一天深夜到账<br>
+    &bull; TikTok Shop：T+3 到 T+15 不等，根据账期确认<br>
+    &bull; Walmart：每两周结算，需关注美东时间<br>
+    &bull; MercadoLibre（墨西哥）：MXN 结算，北京时间次日可见<br>
+    &bull; Temu：全托管/半托管结算节点不同，需分别跟踪
+  </div>
+
+  <h3>账户体系</h3>
+  <table class="info-table">
+    <tr><th>账户名称</th><th>类型</th><th>主要用途</th><th>币种</th></tr>
+    <tr><td>香港诚谦账户</td><td>香港公司账户</td><td>Amazon/Walmart/TikTok 美元收款，换汇中转</td><td>USD / HKD</td></tr>
+    <tr><td>国内公账</td><td>深圳公司对公账户</td><td>人民币结算、供应商付款、员工工资</td><td>CNY</td></tr>
+    <tr><td>内账（老板账）</td><td>私人账户</td><td>灵活资金调配、部分垫付款项</td><td>CNY</td></tr>
+  </table>
+
+  <h3>平台与币种对照</h3>
+  <table class="info-table">
+    <tr><th>平台</th><th>领星代码</th><th>结算币种</th><th>当前参考汇率</th><th>特殊说明</th></tr>
+    <tr><td>Amazon</td><td>10001</td><td>USD</td><td>×7.25</td><td>利润报表 API 可获取实际结算数据</td></tr>
+    <tr><td>TikTok Shop</td><td>10011</td><td>USD</td><td>×7.25</td><td>含美国、英国、东南亚多站点</td></tr>
+    <tr><td>Walmart</td><td>10008</td><td>USD</td><td>×7.25</td><td>每两周结算一次</td></tr>
+    <tr><td>MercadoLibre</td><td>10012</td><td>MXN</td><td>×0.40</td><td><strong>收入按 50% 计入</strong>（合作分成项目）</td></tr>
+    <tr><td>Temu 全托管</td><td>10022</td><td>USD</td><td>×7.25</td><td>平台代发货，结算方式特殊</td></tr>
+    <tr><td>Temu 半托管</td><td>10024</td><td>USD</td><td>×7.25</td><td>卖家自发货，按订单结算</td></tr>
+  </table>
+
+  <div class="callout callout-warn">
+    <strong>重要：汇率配置文件需每月人工更新</strong>
+    汇率配置存放于 <code>analysis/costs_config.json</code> → <code>exchange_rates</code> 字段，按月配置均价。每月首个工作日，财务主管必须根据实际换汇均价更新配置，否则看板数据不准确。当前配置：USD×7.25 / AED×1.97 / MXN×0.40 / GBP×9.10。
+  </div>
+</div>
+
+<!-- ==================== 月结流程 ==================== -->
+<div class="section" id="monthend">
+  <h2>二、月结流程 SOP</h2>
+
+  <p>月结流程于每月次月 5 日前完成。以下为标准执行步骤，各环节均需在财务工作底稿中留痕。</p>
+
+  <h3>月结时间节点</h3>
+  <div class="flow">
+    <div class="flow-step">次月 1 日<br>数据采集</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">次月 2 日<br>成本归集</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">次月 3 日<br>收入确认</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">次月 4 日<br>三表生成</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">次月 5 日<br>复核归档</div>
+  </div>
+
+  <h3>第一步：平台销售数据核对</h3>
+  <div class="callout callout-info">
+    <strong>应收 vs 实收的核心区别</strong>
+    应收（领星 ERP 订单金额）= 平台应支付给卖家的金额，尚未扣除平台佣金、FBA费、汇损等。<br>
+    实收（飞书多维表格到账记录）= 实际已换汇入账的人民币金额，为最终到手金额。<br>
+    两者数据来源不同，不可混用，在看板和报表中须分开展示。
+  </div>
+
+  <ol class="checklist">
+    <li><span class="num">1</span>
+      <div class="content"><strong>导出领星 ERP 当月订单数据</strong>
+        <div class="detail">登录领星 ERP → 数据中心 → 订单报表 → 选择当月日期范围 → 按平台分别导出。覆盖全部六个平台代码（10001/10008/10011/10012/10022/10024）。MercadoLibre 导出后需将金额 ×50% 再计入汇总。</div>
+      </div>
+    </li>
+    <li><span class="num">2</span>
+      <div class="content"><strong>与平台后台数据核对（应收核对）</strong>
+        <div class="detail">
+          逐平台登录后台，核对订单总金额：<br>
+          &bull; Amazon Seller Central → Reports → Payments → 下载 Settlement Report<br>
+          &bull; TikTok Shop 后台 → 财务 → 结算报告<br>
+          &bull; Walmart Seller Center → Payments → Statement<br>
+          &bull; MercadoLibre → Mis Ventas → Facturación<br>
+          &bull; Temu 后台 → 财务中心 → 对账单<br>
+          差异超过 5% 必须排查原因（退款未同步、待确认订单、跨月订单等）。
+        </div>
+      </div>
+    </li>
+    <li><span class="num">3</span>
+      <div class="content"><strong>核对飞书到账记录（实收核对）</strong>
+        <div class="detail">打开飞书多维表格（App Token: Ex71bGF5gaqrtYsZhnxcmEpZnmg），筛选当月「收支=收入」的记录，核对各账户实际到账金额与银行流水是否一致。确认无漏录、无错录。</div>
+      </div>
+    </li>
+    <li><span class="num">4</span>
+      <div class="content"><strong>记录核对结果</strong>
+        <div class="detail">在月结工作底稿中填写：各平台应收金额（原币）、换算 RMB、实收金额、应收实收差异及原因说明。</div>
+      </div>
+    </li>
+  </ol>
+
+  <h3>第二步：成本归集</h3>
+  <table class="info-table">
+    <tr><th>成本科目</th><th>数据来源</th><th>归集方法</th></tr>
+    <tr><td>销货成本（COGS）</td><td>领星 ERP 利润报表 / 采购入库单</td><td>按平台、按 SKU 归集当月已销商品成本</td></tr>
+    <tr><td>头程物流费</td><td>货代发票 / 系统录入</td><td>按批次分摊到当月，跨月批次按实际到货比例分摊</td></tr>
+    <tr><td>FBA/平台仓储费</td><td>Amazon Settlement Report / 领星利润报表</td><td>直接读取平台结算单中的仓储费用行</td></tr>
+    <tr><td>平台佣金</td><td>各平台结算报告</td><td>直接读取结算单佣金行（Amazon referral fee 等）</td></tr>
+    <tr><td>广告费</td><td>Amazon 利润报表 API / 各平台广告后台</td><td>Amazon 使用 API 实际数据；其他平台手动录入 costs_config.json</td></tr>
+    <tr><td>固定成本</td><td>costs_config.json → fixed_costs</td><td>按月直接计入（工资、房租、软件订阅等）</td></tr>
+  </table>
+
+  <div class="callout callout-warn">
+    <strong>跨月费用分摊原则</strong>
+    头程物流费按货物抵达目的仓时间归属月份，不按发货时间。如批次跨越两个月到货，按货量比例分摊。仓储费按平台账单周期归属，不得随意调整。
+  </div>
+
+  <ol class="checklist">
+    <li><span class="num">1</span>
+      <div class="content"><strong>更新 costs_config.json</strong>
+        <div class="detail">路径：<code>analysis/costs_config.json</code>。确认当月固定成本（工资/房租/SaaS订阅）和广告费（非Amazon平台）已按实际金额填写。Amazon 广告费由 API 自动获取，无需手动填写。</div>
+      </div>
+    </li>
+    <li><span class="num">2</span>
+      <div class="content"><strong>收集货代/物流发票</strong>
+        <div class="detail">向各货代索取当月发票，核对金额，录入财务系统。头程费需标注对应批次号和平台，用于后续分摊。</div>
+      </div>
+    </li>
+    <li><span class="num">3</span>
+      <div class="content"><strong>核对仓储和佣金（Amazon 重点）</strong>
+        <div class="detail">下载 Amazon Settlement Report，提取 FBA Storage Fee、Referral Fee、FBA Fulfillment Fee 等费用行，与领星利润报表 API 数据比对，确认一致后录入月结底稿。</div>
+      </div>
+    </li>
+    <li><span class="num">4</span>
+      <div class="content"><strong>汇总成本归集表</strong>
+        <div class="detail">按平台分列成本科目，加总确认，填入利润表草稿。</div>
+      </div>
+    </li>
+  </ol>
+
+  <h3>第三步：收入确认与汇率换算</h3>
+  <ol class="checklist">
+    <li><span class="num">1</span>
+      <div class="content"><strong>确认当月换汇均价</strong>
+        <div class="detail">向银行/兑换平台获取当月实际换汇明细，计算加权平均换汇率（总人民币入账 ÷ 总外币金额）。将结果更新到 <code>costs_config.json → exchange_rates</code> 对应月份。</div>
+      </div>
+    </li>
+    <li><span class="num">2</span>
+      <div class="content"><strong>应收金额按统一汇率换算</strong>
+        <div class="detail">领星订单金额（USD/MXN/GBP）× 当月均价汇率 = 应收人民币。MercadoLibre 需先 ×50% 再换算。此金额用于利润表收入行。</div>
+      </div>
+    </li>
+    <li><span class="num">3</span>
+      <div class="content"><strong>实收金额确认</strong>
+        <div class="detail">飞书多维表格当月收入合计即为实收人民币，直接读取「人民币」字段合计值。此金额用于现金流量表收款项目。</div>
+      </div>
+    </li>
+    <li><span class="num">4</span>
+      <div class="content"><strong>计算应收实收差异（汇兑损益）</strong>
+        <div class="detail">应收换算值 - 实收金额 = 当月汇兑损益。正值为汇兑收益，负值为汇兑损失，计入利润表其他收益/损失项。</div>
+      </div>
+    </li>
+  </ol>
+
+  <h3>第四步：财务三表生成</h3>
+  <ol class="checklist">
+    <li><span class="num">1</span>
+      <div class="content"><strong>运行财务报表生成脚本</strong>
+        <div class="detail">在服务器执行：<code>cd ~/wsl-workspace/JHFinance && python3 analysis/generate_reports.py</code>。脚本读取 <code>raw-data/</code> 下的 Excel 文件，优先级：STANDALONE_2026 月度独立表 > A3 USD 报表 > 流水明细 journal。</div>
+      </div>
+    </li>
+    <li><span class="num">2</span>
+      <div class="content"><strong>生成 HTML 看板</strong>
+        <div class="detail">执行：<code>python3 analysis/generate_html_report.py</code>，生成最新财务看板，并发布到 GitHub Pages（<code>JHFinance-public/index.html</code>）。</div>
+      </div>
+    </li>
+    <li><span class="num">3</span>
+      <div class="content"><strong>复核利润表关键数字</strong>
+        <div class="detail">
+          检查以下项目是否合理：<br>
+          &bull; 综合毛利率是否在合理区间（跨境业务参考：40%-75%）<br>
+          &bull; 各平台收入占比是否符合业务预期<br>
+          &bull; 广告费/收入比率（Amazon 建议 &lt;5%，TikTok 可更高）<br>
+          &bull; MercadoLibre 是否已按 50% 计入
+        </div>
+      </div>
+    </li>
+    <li><span class="num">4</span>
+      <div class="content"><strong>更新资产负债表</strong>
+        <div class="detail">更新现金及存款余额（三账户实际余额）、应收账款（各平台未结算金额）、存货货值（库存 Excel 当月数）、应付账款（待付供应商款项汇总）。</div>
+      </div>
+    </li>
+    <li><span class="num">5</span>
+      <div class="content"><strong>编制现金流量表</strong>
+        <div class="detail">经营活动现金流 = 实收客款 - 实付供应商货款 - 实付物流费 - 实付广告费 - 实付员工工资及费用。数据来源：飞书多维表格当月全部收支记录。</div>
+      </div>
+    </li>
+  </ol>
+
+  <h3>月结检查清单</h3>
+  <table class="info-table">
+    <tr><th>检查项</th><th>操作人</th><th>截止时间</th><th>完成标志</th></tr>
+    <tr><td>领星 ERP 当月订单数据已导出</td><td>财务专员</td><td>次月 1 日 10:00</td><td>底稿有导出记录</td></tr>
+    <tr><td>各平台后台对账完成</td><td>财务专员</td><td>次月 1 日 18:00</td><td>差异 &lt; 5% 或有说明</td></tr>
+    <tr><td>飞书到账记录录入完整</td><td>财务专员</td><td>次月 1 日 18:00</td><td>与银行流水核对通过</td></tr>
+    <tr><td>costs_config.json 已更新</td><td>财务主管</td><td>次月 2 日 10:00</td><td>汇率和固定成本已更新</td></tr>
+    <tr><td>货代/物流发票已收集</td><td>财务专员</td><td>次月 2 日 18:00</td><td>发票已录入，已分摊</td></tr>
+    <tr><td>财务三表脚本运行成功</td><td>财务主管</td><td>次月 3 日 18:00</td><td>HTML看板可正常打开</td></tr>
+    <tr><td>利润表数字复核通过</td><td>财务主管</td><td>次月 4 日 12:00</td><td>主管签字确认</td></tr>
+    <tr><td>月结底稿归档</td><td>财务主管</td><td>次月 5 日 18:00</td><td>文件存入归档文件夹</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 报销审批 ==================== -->
+<div class="section" id="reimbursement">
+  <h2>三、报销审批 SOP</h2>
+
+  <h3>报销范围与标准</h3>
+  <table class="info-table">
+    <tr><th>报销类型</th><th>报销范围</th><th>单笔上限</th><th>备注</th></tr>
+    <tr><td>差旅费</td><td>因公出差的交通、住宿、餐饮</td><td>住宿 400元/晚（深圳），外地 600元/晚</td><td>须事前审批</td></tr>
+    <tr><td>交通费</td><td>市内打车（因公）、公共交通</td><td>无上限，需说明事由</td><td>超 200 元需主管审批</td></tr>
+    <tr><td>办公用品</td><td>日常消耗品、打印耗材</td><td>单次 500 元</td><td>须附清单</td></tr>
+    <tr><td>业务招待费</td><td>客户/合作方餐饮招待</td><td>1,000 元/次</td><td>需说明招待对象及业务目的</td></tr>
+    <tr><td>软件/工具费</td><td>业务所需软件订阅</td><td>无上限</td><td>年费须事前预算审批</td></tr>
+    <tr><td>快递/物流</td><td>寄送文件、样品等</td><td>无上限，需说明事由</td><td>附快递底单</td></tr>
+  </table>
+
+  <div class="callout callout-danger">
+    <strong>不予报销的费用</strong>
+    个人餐饮（非因公）、个人购物、罚款及违规费用、未取得正规发票的费用（收据、白条不接受）、超标准住宿未事先审批的差额部分。
+  </div>
+
+  <h3>审批层级与权限</h3>
+  <table class="info-table">
+    <tr><th>金额</th><th>审批流程</th><th>时效要求</th></tr>
+    <tr><td>1,000 元以下</td><td>直属主管审批 → 财务确认</td><td>1 个工作日</td></tr>
+    <tr><td>1,000 - 5,000 元</td><td>直属主管 → 部门负责人 → 财务确认</td><td>2 个工作日</td></tr>
+    <tr><td>5,000 - 20,000 元</td><td>部门负责人 → 老板审批 → 财务执行</td><td>3 个工作日</td></tr>
+    <tr><td>20,000 元以上</td><td>老板审批 → 财务主管复核 → 财务执行</td><td>5 个工作日</td></tr>
+  </table>
+
+  <h3>报销单填写规范</h3>
+  <ol class="checklist">
+    <li><span class="num">1</span>
+      <div class="content"><strong>填写基本信息</strong>
+        <div class="detail">报销人姓名、部门、报销日期、联系方式。日期填写实际发生日期，不得填写报销提交日期。</div>
+      </div>
+    </li>
+    <li><span class="num">2</span>
+      <div class="content"><strong>逐笔列明费用</strong>
+        <div class="detail">每笔费用需单独列行，填写：日期、费用类型、发生事由（简明描述业务目的）、金额。不得合并多笔填写。</div>
+      </div>
+    </li>
+    <li><span class="num">3</span>
+      <div class="content"><strong>粘贴发票</strong>
+        <div class="detail">发票按费用顺序整齐粘贴在 A4 纸背面。增值税发票须核验税号。电子发票下载后打印并附上。</div>
+      </div>
+    </li>
+    <li><span class="num">4</span>
+      <div class="content"><strong>提交审批</strong>
+        <div class="detail">纸质版送直属主管签字，同时在飞书工作流（或企业微信）提交电子审批流。电子流审批通过后，方可到财务部门领款。</div>
+      </div>
+    </li>
+  </ol>
+
+  <h3>发票要求</h3>
+  <div class="callout callout-info">
+    <strong>发票基本要求</strong>
+    &bull; 增值税专用发票：税号必须开具为<strong>深圳市锦和科技有限公司</strong>，税号须核对正确<br>
+    &bull; 普通发票/收款收据：抬头须为公司全称，不接受个人抬头<br>
+    &bull; 电子发票：必须完整打印，含二维码验真码<br>
+    &bull; 境外发票（PayPal 收据/Amazon 账单）：附上截图打印件，并注明对应业务<br>
+    &bull; 所有发票需在费用发生 <strong>30 天内</strong>提交，超期原则上不予报销
+  </div>
+
+  <h3>打款周期</h3>
+  <table class="info-table">
+    <tr><th>审批完成时间</th><th>打款时间</th><th>打款方式</th></tr>
+    <tr><td>周一至周三完成审批</td><td>当周五打款</td><td>银行转账至员工账户</td></tr>
+    <tr><td>周四至周五完成审批</td><td>下周二打款</td><td>银行转账至员工账户</td></tr>
+    <tr><td>节假日前</td><td>节假日后第一个工作日打款</td><td>银行转账至员工账户</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 应收管理 ==================== -->
+<div class="section" id="receivable">
+  <h2>四、应收账款管理 SOP</h2>
+
+  <h3>平台回款周期</h3>
+  <table class="info-table">
+    <tr><th>平台</th><th>正常回款周期</th><th>结算货币</th><th>到账账户</th><th>查看路径</th></tr>
+    <tr><td>Amazon</td><td>每 14 天结算一次，T+3 到账</td><td>USD</td><td>香港诚谦</td><td>Seller Central → Reports → Payments</td></tr>
+    <tr><td>TikTok Shop</td><td>T+3（已履约）~ T+15（含纠纷期）</td><td>USD</td><td>香港诚谦</td><td>TikTok Seller Center → Finance → Balance</td></tr>
+    <tr><td>Walmart</td><td>每 14 天结算，T+5 到账</td><td>USD</td><td>香港诚谦</td><td>Seller Center → Payments → Statement</td></tr>
+    <tr><td>MercadoLibre</td><td>T+1（即时提现）~ T+7（自动结算）</td><td>MXN</td><td>ML 钱包→换汇</td><td>Mercado Pago → Mis movimientos</td></tr>
+    <tr><td>Temu 全托管</td><td>月结，次月 15 日</td><td>USD</td><td>香港诚谦</td><td>Temu 供应商后台 → 财务中心</td></tr>
+    <tr><td>Temu 半托管</td><td>T+7 结算</td><td>USD</td><td>香港诚谦</td><td>Temu 供应商后台 → 财务中心</td></tr>
+  </table>
+
+  <h3>每周平台回款核对流程</h3>
+  <ol class="checklist">
+    <li><span class="num">1</span>
+      <div class="content"><strong>下载各平台结算报告（每周一上午）</strong>
+        <div class="detail">逐平台下载上周结算期的结算报告，保存至 <code>raw-data/settlements/YYYY-MM/</code> 文件夹。文件命名格式：<code>平台名_结算日期_金额.csv</code>。</div>
+      </div>
+    </li>
+    <li><span class="num">2</span>
+      <div class="content"><strong>核对银行到账记录</strong>
+        <div class="detail">登录香港诚谦网银，检查上周是否有预期到账款项，金额与结算报告是否一致。差异超过 100 美元需排查原因（拒付、费用扣除等）。</div>
+      </div>
+    </li>
+    <li><span class="num">3</span>
+      <div class="content"><strong>录入飞书多维表格</strong>
+        <div class="detail">确认到账后，在飞书表格中录入：日期、内容（"Amazon 第N期结算"等）、收支="收入"、分类、关联账户、人民币金额（按换汇实际金额）、美金金额。</div>
+      </div>
+    </li>
+    <li><span class="num">4</span>
+      <div class="content"><strong>跟踪逾期未到账款项</strong>
+        <div class="detail">对比预期到账日期与实际到账，超过正常周期 3 天仍未到账需发邮件/工单询问平台。记录在应收账龄表中。</div>
+      </div>
+    </li>
+  </ol>
+
+  <h3>MercadoLibre 合作方分成结算</h3>
+  <div class="callout callout-warn">
+    <strong>MercadoLibre 50% 分成机制</strong>
+    锦和科技与合作方共同运营 MercadoLibre 账号，收入按 50:50 分成。财务处理规则：<br>
+    &bull; 领星订单数据中 MercadoLibre 的销售额，内部核算时只计 50% 为公司收入<br>
+    &bull; 每月结算后，将合作方应得 50% 通过银行转账支付给合作方<br>
+    &bull; 支付时须取得合作方签收确认，并在飞书表格记录为「支出」，分类「合作分成」<br>
+    &bull; 如合作比例有变更，须书面通知财务部并同步更新 lingxing_api.py 中的 alloc 参数
+  </div>
+
+  <ol class="checklist">
+    <li><span class="num">1</span>
+      <div class="content"><strong>每月月结后计算 ML 分成金额</strong>
+        <div class="detail">ML 当月 MXN 销售额 × 汇率 × 50% = 合作方应得金额（人民币）。</div>
+      </div>
+    </li>
+    <li><span class="num">2</span>
+      <div class="content"><strong>发送分成对账单给合作方</strong>
+        <div class="detail">将计算明细（订单量、MXN金额、汇率、分成比例、人民币金额）发给合作方确认。双方确认无误后执行付款。</div>
+      </div>
+    </li>
+    <li><span class="num">3</span>
+      <div class="content"><strong>执行打款并存档</strong>
+        <div class="detail">通过国内公账打款，保留转账截图，存档至 <code>raw-data/ml-settlements/</code>。</div>
+      </div>
+    </li>
+  </ol>
+
+  <h3>账龄分析</h3>
+  <table class="info-table">
+    <tr><th>账龄</th><th>状态</th><th>处理措施</th></tr>
+    <tr><td>0 - 14 天</td><td style="color:var(--success)">正常</td><td>常规跟踪，无需特别处理</td></tr>
+    <tr><td>15 - 30 天</td><td style="color:var(--warning)">关注</td><td>发平台工单查询，核对结算报告</td></tr>
+    <tr><td>31 - 60 天</td><td style="color:var(--danger)">预警</td><td>升级处理，联系平台客服，报告主管</td></tr>
+    <tr><td>60 天以上</td><td style="color:var(--danger)">逾期</td><td>启动正式催收，必要时通过平台争议系统申诉</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 应付管理 ==================== -->
+<div class="section" id="payable">
+  <h2>五、应付账款管理 SOP</h2>
+
+  <h3>供应商付款流程</h3>
+  <div class="flow">
+    <div class="flow-step">收到供应商<br>发票/账单</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">核对采购单<br>与收货记录</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">填写付款申请<br>提交审批</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">主管/老板<br>审批</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">财务执行<br>付款</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">录入飞书<br>并存档</div>
+  </div>
+
+  <h3>供应商付款审批权限</h3>
+  <table class="info-table">
+    <tr><th>付款金额</th><th>审批权限</th><th>备注</th></tr>
+    <tr><td>10,000 元以下</td><td>财务主管审批即可</td><td>常规补货付款</td></tr>
+    <tr><td>10,000 - 50,000 元</td><td>财务主管 + 运营/采购负责人</td><td>需确认已有采购订单</td></tr>
+    <tr><td>50,000 - 200,000 元</td><td>老板审批</td><td>须附采购合同/订单截图</td></tr>
+    <tr><td>200,000 元以上</td><td>老板审批 + 财务主管复核</td><td>大额付款需两人确认</td></tr>
+  </table>
+
+  <h3>付款执行 SOP</h3>
+  <ol class="checklist">
+    <li><span class="num">1</span>
+      <div class="content"><strong>核对三单一致性</strong>
+        <div class="detail">付款前核对：采购订单（数量/单价）、收货入库单（已收到货物）、供应商发票（金额/税率）。三单不符不得付款。</div>
+      </div>
+    </li>
+    <li><span class="num">2</span>
+      <div class="content"><strong>确认供应商账户信息</strong>
+        <div class="detail">首次付款须通过已验证渠道（合同、官方邮件）确认账户信息，不得仅凭电话或微信通知的账户付款。更换账户须重新核验。</div>
+      </div>
+    </li>
+    <li><span class="num">3</span>
+      <div class="content"><strong>执行打款</strong>
+        <div class="detail">通过国内公账（常规供应商付款）或香港诚谦账户（境外供应商/货代 USD 付款）执行转账。截图留存。</div>
+      </div>
+    </li>
+    <li><span class="num">4</span>
+      <div class="content"><strong>录入飞书表格</strong>
+        <div class="detail">录入字段：日期、内容（"付XX公司货款-第N批"）、收支="支出"、分类（货款/物流费/广告费等）、关联账户、人民币金额。</div>
+      </div>
+    </li>
+    <li><span class="num">5</span>
+      <div class="content"><strong>通知供应商并索取收款确认</strong>
+        <div class="detail">付款后微信/邮件通知供应商，请对方确认到账。将确认截图存入 <code>raw-data/payments/YYYY-MM/</code>。</div>
+      </div>
+    </li>
+  </ol>
+
+  <div class="callout callout-danger">
+    <strong>付款安全红线</strong>
+    &bull; 绝对禁止：仅凭微信/电话通知更改付款账户，不核实直接付款<br>
+    &bull; 绝对禁止：无审批单据的紧急付款（即使老板口头同意，也须在飞书补录审批）<br>
+    &bull; 绝对禁止：向个人账户付货款（须为公司对公账户，特殊情况须有书面说明）<br>
+    &bull; 防范骗局：收到"供应商换账号"通知，必须电话回拨至之前已知号码二次确认
+  </div>
+
+  <h3>货代/头程物流付款要点</h3>
+  <ol class="checklist">
+    <li><span class="num">1</span>
+      <div class="content"><strong>核对运费清单</strong>
+        <div class="detail">货代发票须含：批次号/提单号、起运/目的地、重量体积、运费单价、总金额。与发货单核对。</div>
+      </div>
+    </li>
+    <li><span class="num">2</span>
+      <div class="content"><strong>区分记账月份</strong>
+        <div class="detail">按货物到达目的仓时间归属月份记账（非发货时间）。跨月批次须拆分。</div>
+      </div>
+    </li>
+    <li><span class="num">3</span>
+      <div class="content"><strong>USD 货代付款</strong>
+        <div class="detail">通过香港诚谦账户发送 USD 电汇，需提前确认受益人 SWIFT/IBAN 信息，留存 SWIFT 汇款底单。</div>
+      </div>
+    </li>
+  </ol>
+</div>
+
+<!-- ==================== 多币种管理 ==================== -->
+<div class="section" id="forex">
+  <h2>六、多币种与换汇管理 SOP</h2>
+
+  <h3>外币收入流转路径</h3>
+  <div class="flow">
+    <div class="flow-step">平台结算<br>USD/MXN/GBP</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">香港诚谦<br>外币账户</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">银行换汇<br>（择机）</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">结汇为 CNY</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">转入国内<br>公账/内账</div>
+  </div>
+
+  <h3>各币种管理规则</h3>
+  <table class="info-table">
+    <tr><th>币种</th><th>来源平台</th><th>换汇时机</th><th>当前参考汇率</th><th>注意事项</th></tr>
+    <tr><td>USD（美元）</td><td>Amazon / TikTok / Walmart / Temu</td><td>积累到一定金额后统一换汇，避免频繁小额</td><td>×7.25</td><td>关注美联储利率政策，可阶梯式分批换汇</td></tr>
+    <tr><td>MXN（墨西哥比索）</td><td>MercadoLibre</td><td>收款后尽快换汇（MXN 波动较大）</td><td>×0.40</td><td>先扣除合作方 50% 分成再换汇，避免超额换汇</td></tr>
+    <tr><td>GBP（英镑）</td><td>TikTok Shop UK</td><td>与 USD 统一批次换汇</td><td>×9.10</td><td>关注英国站 TikTok 业务占比</td></tr>
+    <tr><td>AED（迪拉姆）</td><td>TikTok Shop 中东</td><td>收款后尽快换汇</td><td>×1.97</td><td>中东站业务体量较小，暂按月度统一换汇</td></tr>
+  </table>
+
+  <h3>换汇操作 SOP</h3>
+  <ol class="checklist">
+    <li><span class="num">1</span>
+      <div class="content"><strong>汇率评估</strong>
+        <div class="detail">换汇前参考当日银行中间价，与过去 30 天平均汇率对比。如汇率比月均高 0.5% 以上，可适当提前换汇。不建议预测汇率走势，优先保证资金流转顺畅。</div>
+      </div>
+    </li>
+    <li><span class="num">2</span>
+      <div class="content"><strong>执行换汇</strong>
+        <div class="detail">登录香港诚谦网银/柜台，操作外汇兑换，记录实际成交汇率和金额。截图留存。</div>
+      </div>
+    </li>
+    <li><span class="num">3</span>
+      <div class="content"><strong>更新汇率配置</strong>
+        <div class="detail">每笔换汇后，将实际换汇汇率更新到月度换汇汇率跟踪表。月底计算当月加权平均换汇率，填入 <code>analysis/costs_config.json → exchange_rates</code> 对应月份。</div>
+      </div>
+    </li>
+    <li><span class="num">4</span>
+      <div class="content"><strong>录入飞书表格</strong>
+        <div class="detail">换汇到账后在飞书录入：日期、内容（"USD换汇到账 XXUSD@7.XX"）、收支="收入"、分类="换汇"、关联账户="国内公账"、人民币金额、美金金额。</div>
+      </div>
+    </li>
+  </ol>
+
+  <h3>汇兑损益计算</h3>
+  <div class="callout callout-info">
+    <strong>月度汇兑损益核算方法</strong>
+    账面应收（领星订单金额 × 月初汇率记账价）与实际换汇到账（实收人民币）之间的差额，即为当月汇兑损益。<br>
+    &bull; 实收 &gt; 账面应收 = 汇兑收益（计入其他收益）<br>
+    &bull; 实收 &lt; 账面应收 = 汇兑损失（计入财务费用）<br>
+    跨境业务每月均有汇兑损益，属正常现象。若当月损失超过收入 3%，须向老板说明原因。
+  </div>
+</div>
+
+<!-- ==================== 日常操作 ==================== -->
+<div class="section" id="daily-ops">
+  <h2>七、日常财务操作规范</h2>
+
+  <h3>飞书多维表格录入规范</h3>
+  <div class="callout callout-info">
+    <strong>飞书多维表格配置</strong>
+    App Token：Ex71bGF5gaqrtYsZhnxcmEpZnmg &nbsp;|&nbsp; Table ID：tblk3dlguIkEOwKt<br>
+    每日录入截止时间：18:00 北京时间。当日发生的收支当日录入，不得积压。
+  </div>
+
+  <table class="info-table">
+    <tr><th>字段名</th><th>填写规范</th><th>示例</th></tr>
+    <tr><td>日期</td><td>实际收/付款日期，格式 YYYY-MM-DD</td><td>2026-04-07</td></tr>
+    <tr><td>内容</td><td>简明描述，包含对手方和事由</td><td>Amazon 第8期结算到账</td></tr>
+    <tr><td>收支</td><td>只能选"收入"或"支出"，不得留空</td><td>收入</td></tr>
+    <tr><td>分类</td><td>从预设分类选择（货款/物流/广告/工资/换汇/分成…）</td><td>平台结算</td></tr>
+    <tr><td>关联账户</td><td>香港诚谦 / 国内公账 / 内账</td><td>香港诚谦</td></tr>
+    <tr><td>人民币</td><td>实际入账人民币金额，换汇前的外币入账填 0</td><td>52,340.00</td></tr>
+    <tr><td>美金</td><td>外币原始金额（如有），其他填 0</td><td>7,212.00</td></tr>
+    <tr><td>英镑</td><td>英镑原始金额（如有），其他填 0</td><td>0</td></tr>
+  </table>
+
+  <div class="callout callout-warn">
+    <strong>常见录入错误</strong>
+    &bull; 日期填写提交日期而非发生日期 — 必须填实际业务发生/到账日<br>
+    &bull; 人民币和美金都填了实际金额 — 换汇前只填外币，换汇后录一条新记录填人民币<br>
+    &bull; 内容过于简略（如"转账"）— 必须说明对手方和业务目的<br>
+    &bull; 分类选错（货款选成物流）— 月结时会导致成本归集错误
+  </div>
+
+  <h3>领星 ERP 数据核对（每日）</h3>
+  <ol class="checklist">
+    <li><span class="num">1</span>
+      <div class="content"><strong>查看每日订单数据</strong>
+        <div class="detail">登录领星 ERP 或查看系统仪表盘（GitHub Pages），确认前一天各平台订单量和销售额。与预期趋势对比，异常波动（±30%以上）需记录原因。</div>
+      </div>
+    </li>
+    <li><span class="num">2</span>
+      <div class="content"><strong>核对领星缓存数据</strong>
+        <div class="detail">每日 08:00 自动拉取脚本（daily_update.sh）已更新领星数据缓存（.lx_data_cache.json）和飞书数据缓存（.feishu_cache.json）。如看板数据停滞不更新，检查服务器 cron 是否正常运行：<code>cat ~/wsl-workspace/JHFinance/daily_update.log | tail -20</code>。</div>
+      </div>
+    </li>
+    <li><span class="num">3</span>
+      <div class="content"><strong>标记数据异常</strong>
+        <div class="detail">发现订单数据异常（如某平台突然无数据、订单金额明显异常），立即通知运营负责人，并在内部记录中注明，防止月结时数据失真。</div>
+      </div>
+    </li>
+  </ol>
+
+  <h3>银行流水核对（每日）</h3>
+  <ol class="checklist">
+    <li><span class="num">1</span>
+      <div class="content"><strong>下载三账户流水</strong>
+        <div class="detail">登录香港诚谦网银、国内公账网银，导出前一个工作日的流水明细。内账由老板提供月度汇总，财务不直接操作。</div>
+      </div>
+    </li>
+    <li><span class="num">2</span>
+      <div class="content"><strong>与飞书记录核对</strong>
+        <div class="detail">逐笔核对银行流水与飞书多维表格记录，确认无漏录、无金额差异。每笔差异必须查明原因并当日补录。</div>
+      </div>
+    </li>
+    <li><span class="num">3</span>
+      <div class="content"><strong>记录账户余额</strong>
+        <div class="detail">在每日余额跟踪表中记录三账户当日期末余额（香港诚谦 USD/HKD、国内公账 CNY）。月底用于资产负债表编制。</div>
+      </div>
+    </li>
+  </ol>
+
+  <h3>税务申报提醒</h3>
+  <table class="info-table">
+    <tr><th>申报类型</th><th>申报周期</th><th>截止日期</th><th>负责人</th></tr>
+    <tr><td>增值税申报</td><td>按月（小规模纳税人）或按季</td><td>次月 15 日</td><td>财务主管 / 委托代理记账</td></tr>
+    <tr><td>企业所得税预缴</td><td>按季</td><td>季度结束后 15 日内</td><td>财务主管 / 委托代理记账</td></tr>
+    <tr><td>个人所得税（工资代扣代缴）</td><td>按月</td><td>次月 15 日</td><td>财务主管</td></tr>
+    <tr><td>香港利得税</td><td>年度</td><td>每年 11 月前（香港公司）</td><td>香港会计师事务所</td></tr>
+  </table>
+
+  <div class="callout callout-danger">
+    <strong>税务截止日期红线</strong>
+    申报逾期将产生罚款及滞纳金。财务主管须在每月 10 日前检查当月是否有申报任务，提前 3 天准备材料。如遇节假日，截止日期通常顺延至下一工作日（以税务局公告为准）。
+  </div>
+
+  <h3>月度财务数据更新 SOP（系统层面）</h3>
+  <ol class="checklist">
+    <li><span class="num">1</span>
+      <div class="content"><strong>上传月度 Excel 财务报表</strong>
+        <div class="detail">将当月会计 Excel（格式：锦和财务三表_YYYYMMDD.xlsx）放入 <code>raw-data/</code> 目录。脚本优先读取 STANDALONE_2026 工作表。</div>
+      </div>
+    </li>
+    <li><span class="num">2</span>
+      <div class="content"><strong>运行数据更新脚本</strong>
+        <div class="detail">月结完成后，在服务器执行：<code>cd ~/wsl-workspace/JHFinance && bash analysis/daily_update.sh</code>，更新看板数据。</div>
+      </div>
+    </li>
+    <li><span class="num">3</span>
+      <div class="content"><strong>推送 GitHub Pages</strong>
+        <div class="detail">确认 <code>JHFinance-public/index.html</code> 已更新后，执行 <code>cd JHFinance-public && git add -A && git commit -m "月结数据更新: YYYY-MM" && git push</code>，发布到 GitHub Pages。</div>
+      </div>
+    </li>
+    <li><span class="num">4</span>
+      <div class="content"><strong>通知相关人员</strong>
+        <div class="detail">月结看板更新后，发飞书消息通知老板和运营负责人，附上 GitHub Pages 链接，告知数据已更新至 X 月。</div>
+      </div>
+    </li>
+  </ol>
+</div>
+
+<!-- ==================== KPI ==================== -->
+<div class="section" id="kpi">
+  <h2>八、财务部 KPI 指标体系</h2>
+
+  <h3>月结及时性指标</h3>
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <div class="label">月结完成时间</div>
+      <div class="value">次月 5 日前</div>
+      <div class="target">目标：次月 3 日完成</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">飞书录入及时率</div>
+      <div class="value">100%</div>
+      <div class="target">当日发生当日录入</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">报销处理时效</div>
+      <div class="value">&le; 3 天</div>
+      <div class="target">审批到打款全流程</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">银行对账差异</div>
+      <div class="value">0 元</div>
+      <div class="target">每日核对，差异当日清</div>
+    </div>
+  </div>
+
+  <h3>应收管理指标</h3>
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <div class="label">平台回款核对及时率</div>
+      <div class="value">100%</div>
+      <div class="target">到账 24h 内录入核对</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">逾期应收（超 30 天）</div>
+      <div class="value">0 笔</div>
+      <div class="target">发现即启动催收</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">ML 分成结算及时率</div>
+      <div class="value">月结后 7 天内</div>
+      <div class="target">对账单确认后 3 天打款</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">汇兑损失率</div>
+      <div class="value">&lt; 3%</div>
+      <div class="target">超标需分析换汇时机</div>
+    </div>
+  </div>
+
+  <h3>财务数据质量指标</h3>
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <div class="label">成本归集准确率</div>
+      <div class="value">&ge; 95%</div>
+      <div class="target">月结复核差异 &lt; 5%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">应收应付账目准确率</div>
+      <div class="value">&ge; 99%</div>
+      <div class="target">无重复付款、遗漏收款</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">税务申报逾期次数</div>
+      <div class="value">0 次</div>
+      <div class="target">全年不得逾期申报</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">付款安全事故</div>
+      <div class="value">0 次</div>
+      <div class="target">无错转、无诈骗付款</div>
+    </div>
+  </div>
+
+  <h3>业务财务监控指标（参考值）</h3>
+  <table class="info-table">
+    <tr><th>指标</th><th>参考范围</th><th>预警阈值</th><th>数据来源</th></tr>
+    <tr><td>综合毛利率</td><td>40% - 75%</td><td>&lt; 30% 需排查</td><td>领星利润报表 + 成本归集</td></tr>
+    <tr><td>Amazon 广告费/收入比</td><td>&lt; 5%</td><td>&gt; 10% 需审查</td><td>Amazon 利润报表 API</td></tr>
+    <tr><td>各平台收入占比（TikTok）</td><td>监控趋势</td><td>单平台 &gt; 70% 需分散风险</td><td>领星 ERP 订单</td></tr>
+    <tr><td>库存货值/月销售额</td><td>1.5x - 3x</td><td>&gt; 4x 为积压预警</td><td>库存 Excel + 销售数据</td></tr>
+    <tr><td>现金及存款余额</td><td>覆盖 2 个月运营成本</td><td>&lt; 1 个月成本需预警</td><td>三账户实际余额</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 工具清单 ==================== -->
+<div class="section" id="tools">
+  <h2>九、工具清单与系统入口</h2>
+
+  <table class="info-table">
+    <tr><th>工具/系统</th><th>用途</th><th>访问入口</th><th>负责人</th></tr>
+    <tr><td><strong>飞书多维表格</strong></td><td>每日收支录入、财务流水管理</td><td>飞书 App → 多维表格 → 财务实收 (App Token: Ex71bGF5gaqrtYsZhnxcmEpZnmg)</td><td>财务专员</td></tr>
+    <tr><td><strong>领星 ERP</strong></td><td>跨境订单数据、利润报表、库存</td><td>领星 ERP 后台（需账号）</td><td>财务专员 / 运营</td></tr>
+    <tr><td><strong>财务看板（GitHub Pages）</strong></td><td>月度运营数据可视化、三表查看</td><td>GitHub Pages 链接（JHFinance-public）</td><td>财务主管</td></tr>
+    <tr><td><strong>香港诚谦网银</strong></td><td>USD 收款、换汇、境外付款</td><td>银行官网（需 U 盾/Token）</td><td>财务主管</td></tr>
+    <tr><td><strong>国内公账网银</strong></td><td>CNY 日常收付款</td><td>招商银行/建设银行企业网银</td><td>财务主管</td></tr>
+    <tr><td><strong>Amazon Seller Central</strong></td><td>平台结算报告下载</td><td>sellercentral.amazon.com</td><td>财务专员</td></tr>
+    <tr><td><strong>TikTok Seller Center</strong></td><td>TikTok 财务对账</td><td>seller.tiktok.com → Finance</td><td>财务专员</td></tr>
+    <tr><td><strong>Walmart Seller Center</strong></td><td>Walmart 对账单</td><td>seller.walmart.com → Payments</td><td>财务专员</td></tr>
+    <tr><td><strong>MercadoLibre / Mercado Pago</strong></td><td>ML 回款与分成结算</td><td>vendedores.mercadolibre.com.mx</td><td>财务专员</td></tr>
+    <tr><td><strong>Temu 供应商后台</strong></td><td>Temu 结算对账</td><td>seller.temu.com → 财务中心</td><td>财务专员</td></tr>
+    <tr><td><strong>costs_config.json</strong></td><td>月度汇率 + 固定成本配置</td><td><code>~/wsl-workspace/JHFinance/analysis/costs_config.json</code></td><td>财务主管</td></tr>
+    <tr><td><strong>daily_update.sh</strong></td><td>每日自动数据更新脚本（cron 08:00）</td><td><code>~/wsl-workspace/JHFinance/analysis/daily_update.sh</code></td><td>技术/财务主管</td></tr>
+  </table>
+
+  <h3>关键文件路径速查</h3>
+  <table class="info-table">
+    <tr><th>文件/目录</th><th>说明</th></tr>
+    <tr><td><code>analysis/costs_config.json</code></td><td>月度汇率配置、固定成本、广告费（非Amazon）—— 每月必须更新</td></tr>
+    <tr><td><code>analysis/.lx_data_cache.json</code></td><td>领星 API 数据缓存（自动生成，不可手动编辑）</td></tr>
+    <tr><td><code>analysis/.feishu_cache.json</code></td><td>飞书数据缓存（自动生成，不可手动编辑）</td></tr>
+    <tr><td><code>raw-data/</code></td><td>原始 Excel 财务报表，月度会计文件存放目录</td></tr>
+    <tr><td><code>monthly-reports/</code></td><td>生成的月度 HTML 报告和 Excel 三表</td></tr>
+    <tr><td><code>JHFinance-public/index.html</code></td><td>GitHub Pages 看板页面（推送后自动更新）</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 应急处理 ==================== -->
+<div class="section" id="emergency">
+  <h2>十、应急处理</h2>
+
+  <h3>场景一：平台回款长期未到账</h3>
+  <ol class="checklist">
+    <li><span class="num">1</span><div class="content"><strong>确认结算报告</strong><div class="detail">登录平台后台，确认该期结算报告已生成，核对金额和状态是否为"已结算"。</div></div></li>
+    <li><span class="num">2</span><div class="content"><strong>检查账户信息</strong><div class="detail">确认平台绑定的收款账户是否正确，是否有账户信息变更未同步。</div></div></li>
+    <li><span class="num">3</span><div class="content"><strong>提交平台工单</strong><div class="detail">通过平台官方渠道（卖家支持中心）提交查询工单，附上结算报告截图和银行账号信息，要求平台核查。</div></div></li>
+    <li><span class="num">4</span><div class="content"><strong>上报主管</strong><div class="detail">超过正常回款周期 7 天未到账，立即上报财务主管和老板，必要时寻求法律/平台政策支持。</div></div></li>
+  </ol>
+
+  <h3>场景二：发现异常付款（疑似诈骗）</h3>
+  <ol class="checklist">
+    <li><span class="num">1</span><div class="content"><strong>立即联系银行止付</strong><div class="detail">发现错误付款后，第一时间电话联系开户银行，申请紧急止付或撤回转账（境内转账有时可撤回）。</div></div></li>
+    <li><span class="num">2</span><div class="content"><strong>保存全部证据</strong><div class="detail">截图保存：聊天记录、付款凭证、银行流水、对方账号信息。不得删除任何相关记录。</div></div></li>
+    <li><span class="num">3</span><div class="content"><strong>立即上报老板</strong><div class="detail">任何金额的疑似诈骗付款都必须第一时间上报，不得隐瞒或自行处理。</div></div></li>
+    <li><span class="num">4</span><div class="content"><strong>向公安机关报案</strong><div class="detail">金额较大（5,000 元以上）的诈骗付款，须向当地公安机关报案，取得受案回执用于后续追偿。</div></div></li>
+  </ol>
+
+  <h3>场景三：看板数据不更新 / 脚本报错</h3>
+  <ol class="checklist">
+    <li><span class="num">1</span><div class="content"><strong>查看更新日志</strong><div class="detail">执行：<code>tail -50 ~/wsl-workspace/JHFinance/daily_update.log</code>，查看最近一次运行是否报错。</div></div></li>
+    <li><span class="num">2</span><div class="content"><strong>检查 API Token 是否过期</strong><div class="detail">飞书 API Token 有效期 2 小时（自动刷新），领星 API Token 有效期较长。如报 401 错误，检查 <code>analysis/feishu_api.py</code> 或 <code>lingxing_api.py</code> 中的 App ID/Secret 是否有效。</div></div></li>
+    <li><span class="num">3</span><div class="content"><strong>手动运行脚本</strong><div class="detail">执行 <code>cd ~/wsl-workspace/JHFinance && bash analysis/daily_update.sh</code> 手动触发更新，观察实时报错信息。</div></div></li>
+    <li><span class="num">4</span><div class="content"><strong>联系技术支持</strong><div class="detail">若无法自行排查，截图报错信息，联系系统维护人员处理。在脚本修复前，可手动维护 Excel 原始数据保证月结不中断。</div></div></li>
+  </ol>
+
+  <h3>场景四：月结数据异常（利润率偏差过大）</h3>
+  <ol class="checklist">
+    <li><span class="num">1</span><div class="content"><strong>逐项排查收入端</strong><div class="detail">确认 MercadoLibre 是否已按 50% 计入；确认汇率是否使用当月均价；确认无平台重复计算。</div></div></li>
+    <li><span class="num">2</span><div class="content"><strong>逐项排查成本端</strong><div class="detail">确认 COGS 是否按已销数量计算（非采购数量）；确认头程费是否按到货月份归属；确认广告费未重复录入（API + 手工双重计入）。</div></div></li>
+    <li><span class="num">3</span><div class="content"><strong>与运营核实业务情况</strong><div class="detail">毛利率大幅下降可能有正当原因（清货促销、大额广告投放、新品冷启动），需与运营团队核实业务背景后再判断是否为数据错误。</div></div></li>
+    <li><span class="num">4</span><div class="content"><strong>修正并记录</strong><div class="detail">找到错误原因后，修正数据，在月结工作底稿中记录"发现问题 → 原因 → 修正方式"，防止下月重复发生。</div></div></li>
+  </ol>
+</div>
+
+<!-- ==================== 附录 ==================== -->
+<div class="section" id="appendix">
+  <h2>十一、附录</h2>
+
+  <h3>财务术语速查</h3>
+  <table class="info-table">
+    <tr><th>术语</th><th>含义</th><th>备注</th></tr>
+    <tr><td>应收账款</td><td>已销售但尚未收到款项的金额</td><td>来源：领星订单金额（扣除平台费前）</td></tr>
+    <tr><td>实收账款</td><td>实际到账的人民币金额</td><td>来源：飞书多维表格到账记录</td></tr>
+    <tr><td>COGS</td><td>销货成本（Cost of Goods Sold）</td><td>已售商品的采购成本</td></tr>
+    <tr><td>毛利率</td><td>（收入 - 直接成本）/ 收入</td><td>直接成本含 COGS、佣金、FBA 费、广告费</td></tr>
+    <tr><td>汇兑损益</td><td>因汇率变动导致的收益或损失</td><td>应收换算值 vs 实际到账人民币之差</td></tr>
+    <tr><td>Settlement Report</td><td>平台结算报告</td><td>平台每期结算的明细账单</td></tr>
+    <tr><td>头程物流费</td><td>国内工厂到海外仓的运费</td><td>按到货月份分摊</td></tr>
+    <tr><td>FBA 费用</td><td>Amazon 代发货费用</td><td>含履约费 + 仓储费</td></tr>
+    <tr><td>Referral Fee</td><td>Amazon 平台佣金</td><td>按类目比率，通常 8%-15%</td></tr>
+    <tr><td>ML 50% 分成</td><td>MercadoLibre 合作分成机制</td><td>与合作方各 50%，仅计 50% 为公司收入</td></tr>
+    <tr><td>ACOS</td><td>广告销售成本比（Advertising Cost of Sales）</td><td>广告费 / 广告带来的销售额</td></tr>
+    <tr><td>SWIFT/IBAN</td><td>国际电汇银行识别码</td><td>境外付款时必须核验</td></tr>
+  </table>
+
+  <h3>月度财务操作检查清单（打印版）</h3>
+  <table class="info-table">
+    <tr><th>时间</th><th>操作事项</th><th>负责人</th><th>完成</th></tr>
+    <tr><td>月中</td><td>更新本月汇率换算配置（costs_config.json）</td><td>财务主管</td><td>[ ]</td></tr>
+    <tr><td>月末最后一天</td><td>确认各平台当月所有结算报告已下载</td><td>财务专员</td><td>[ ]</td></tr>
+    <tr><td>次月 1 日</td><td>导出领星 ERP 当月全部订单数据</td><td>财务专员</td><td>[ ]</td></tr>
+    <tr><td>次月 1 日</td><td>核对飞书到账记录与银行流水（当月全月）</td><td>财务专员</td><td>[ ]</td></tr>
+    <tr><td>次月 2 日</td><td>完成成本归集（COGS/头程/广告/固定成本）</td><td>财务主管</td><td>[ ]</td></tr>
+    <tr><td>次月 2 日</td><td>计算当月加权平均换汇率并录入配置</td><td>财务主管</td><td>[ ]</td></tr>
+    <tr><td>次月 3 日</td><td>运行报表生成脚本，生成财务三表</td><td>财务主管</td><td>[ ]</td></tr>
+    <tr><td>次月 3 日</td><td>复核利润表：毛利率/各平台占比/ML分成</td><td>财务主管</td><td>[ ]</td></tr>
+    <tr><td>次月 3 日</td><td>计算 MercadoLibre 合作方分成金额</td><td>财务主管</td><td>[ ]</td></tr>
+    <tr><td>次月 4 日</td><td>向合作方发送 ML 分成对账单并确认</td><td>财务主管</td><td>[ ]</td></tr>
+    <tr><td>次月 5 日</td><td>月结底稿归档，推送 GitHub Pages 看板</td><td>财务主管</td><td>[ ]</td></tr>
+    <tr><td>次月 5 日</td><td>向老板发送月结报告通知</td><td>财务主管</td><td>[ ]</td></tr>
+    <tr><td>次月 15 日前</td><td>增值税 / 个税申报（如适用）</td><td>财务主管 / 代理记账</td><td>[ ]</td></tr>
+  </table>
+
+  <h3>文档版本历史</h3>
+  <table class="info-table">
+    <tr><th>版本</th><th>日期</th><th>更新内容</th><th>作者</th></tr>
+    <tr><td>v1.0</td><td>2026-04-07</td><td>初版发布，包含月结流程、报销审批、应收应付、多币种管理、日常操作五大模块</td><td>Claude Code</td></tr>
+  </table>
+</div>
+
+</div><!-- container -->
+
+<div class="footer">
+  <p>深圳市锦和科技有限公司 财务部 SOP 员工手册 v1.0 &nbsp;|&nbsp; 内部文档，请勿外传</p>
+  <p style="margin-top:.3rem">最后更新：2026-04-07 &nbsp;|&nbsp; 如有疑问请联系财务主管</p>
+</div>
+
+<script>
+// Smooth scroll + active nav
+document.querySelectorAll('.nav a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelectorAll('.nav a').forEach(n => n.classList.remove('active'));
+    a.classList.add('active');
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+// Scroll spy
+const sections = document.querySelectorAll('.section[id]');
+const navLinks = document.querySelectorAll('.nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 160) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+</body>
+</html>
