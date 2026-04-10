@@ -182,13 +182,14 @@
 <div id="main-content">
 <div class="header">
   <h1>锦和科技 · 财务报告</h1>
-  <div class="subtitle">生成时间：2026年04月10日 15:02 · 数据覆盖 2025-02 至 2026-03</div>
+  <div class="subtitle">生成时间：2026年04月10日 15:08 · 数据覆盖 2025-02 至 2026-03</div>
 </div>
 
 <div class="tabs">
   <div class="tab active" onclick="showTab('daily')">📅 每月运营看板</div>
   <div class="tab" onclick="showTab('week7')">⚡ 前7日</div>
   <div class="tab" onclick="showTab('settlement')">📊 各平台结算</div>
+  <div class="tab" onclick="showTab('product_profit')">📦 产品利润</div>
   <div class="tab" onclick="showTab('feishu')">💰 财务实收</div>
   <div class="tab" onclick="showTab('overview')">📊 概览</div>
   <div class="tab" onclick="showTab('income')">📋 利润表</div>
@@ -1674,6 +1675,847 @@ function showSettMonth(ym) {
   }
 }
 </script>
+
+
+<div id="product_profit" class="section">
+  <div class="note" style="font-size:11px;margin-bottom:8px;">
+    数据来源：领星订单缓存 · 更新时间 2026-04-10T15:00
+    &nbsp;|&nbsp; 美客多按50%计入 · 成本=领星录入采购成本(¥)
+    &nbsp;|&nbsp; Amazon订单无平台级COGS，仅显示收入
+  </div>
+  
+  <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr;">
+    <div class="kpi-card kpi-blue"><div class="kpi-title">总 SKU 数</div>
+      <div class="kpi-value" style="font-size:18px;">14</div>
+      <div class="kpi-sub">总销量 2,388 件</div></div>
+    <div class="kpi-card kpi-blue"><div class="kpi-title">总收入(¥)</div>
+      <div class="kpi-value" style="font-size:18px;">¥288,707</div>
+      <div class="kpi-sub">总成本 ¥48,539</div></div>
+    <div class="kpi-card kpi-green"><div class="kpi-title">总毛利(¥)</div>
+      <div class="kpi-value" style="font-size:18px;">¥240,168</div>
+      <div class="kpi-sub">毛利率 83.2%</div></div>
+  </div>
+  
+  <div class="table-card" style="border-left:3px solid #2e7d32;">
+    <div class="table-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+      <div>
+        <span style="font-weight:700;font-size:14px;">PS5手柄电池</span>
+        <span style="font-size:11px;color:#888;margin-left:6px;">SKU: 4032744893</span>
+      </div>
+      <div><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(0,200,150,0.15);color:#00836a;margin-right:4px;">TikTok</span><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(0,113,220,0.15);color:#004fa0;margin-right:4px;">Walmart</span></div>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;margin:8px 0;">
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总销量</div>
+        <div class="kpi-value" style="font-size:16px;">1,241</div></div>
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总收入</div>
+        <div class="kpi-value" style="font-size:14px;">¥146,187</div>
+        <div class="kpi-sub">单价 ¥117.8</div></div>
+      <div class="kpi-card kpi-orange" style="padding:8px;"><div class="kpi-title">总成本</div>
+        <div class="kpi-value" style="font-size:14px;">¥31,772</div>
+        <div class="kpi-sub">单位 ¥25.6 · 已录入</div></div>
+      <div class="kpi-card kpi-green" style="padding:8px;"><div class="kpi-title">毛利</div>
+        <div class="kpi-value" style="font-size:14px;color:#2e7d32;">¥114,415</div>
+        <div class="kpi-sub">毛利率 78.3%</div></div>
+    </div>
+    <details style="margin-top:4px;">
+      <summary style="cursor:pointer;font-size:12px;color:#666;font-weight:600;">📊 月度明细</summary>
+      <div class="table-wrap" style="margin-top:6px;"><table style="font-size:12px;">
+        <thead><tr><th>月份</th><th style="text-align:right;">销量</th><th style="text-align:right;">收入(¥)</th><th style="text-align:right;">成本(¥)</th><th style="text-align:right;">毛利(¥)</th><th style="text-align:right;">毛利率</th></tr></thead>
+        <tbody>
+          <tr>
+  <td>2026-01</td>
+  <td style="text-align:right;">356</td>
+  <td style="text-align:right;">¥41,954</td>
+  <td style="text-align:right;color:#c00;">¥9,230</td>
+  <td style="text-align:right;color:#2e7d32;">¥32,724</td>
+  <td style="text-align:right;color:#2e7d32;">78.0%</td>
+</tr><tr>
+  <td>2026-02</td>
+  <td style="text-align:right;">399</td>
+  <td style="text-align:right;">¥47,781</td>
+  <td style="text-align:right;color:#c00;">¥10,244</td>
+  <td style="text-align:right;color:#2e7d32;">¥37,537</td>
+  <td style="text-align:right;color:#2e7d32;">78.6%</td>
+</tr><tr>
+  <td>2026-03</td>
+  <td style="text-align:right;">447</td>
+  <td style="text-align:right;">¥51,429</td>
+  <td style="text-align:right;color:#c00;">¥11,310</td>
+  <td style="text-align:right;color:#2e7d32;">¥40,119</td>
+  <td style="text-align:right;color:#2e7d32;">78.0%</td>
+</tr><tr>
+  <td>2026-04</td>
+  <td style="text-align:right;">39</td>
+  <td style="text-align:right;">¥5,023</td>
+  <td style="text-align:right;color:#c00;">¥988</td>
+  <td style="text-align:right;color:#2e7d32;">¥4,035</td>
+  <td style="text-align:right;color:#2e7d32;">80.3%</td>
+</tr>
+          <tr style="font-weight:bold;border-top:2px solid #333;">
+            <td>合计</td>
+            <td style="text-align:right;">1,241</td>
+            <td style="text-align:right;">¥146,187</td>
+            <td style="text-align:right;color:#c00;">¥31,772</td>
+            <td style="text-align:right;color:#2e7d32;">¥114,415</td>
+            <td style="text-align:right;color:#2e7d32;">78.3%</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </details>
+  </div>
+  <div class="table-card" style="border-left:3px solid #2e7d32;">
+    <div class="table-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+      <div>
+        <span style="font-weight:700;font-size:14px;">充电电池仓AAx8</span>
+        <span style="font-size:11px;color:#888;margin-left:6px;">SKU: 5676727181XAA</span>
+      </div>
+      <div><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(0,200,150,0.15);color:#00836a;margin-right:4px;">TikTok</span><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(0,113,220,0.15);color:#004fa0;margin-right:4px;">Walmart</span></div>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;margin:8px 0;">
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总销量</div>
+        <div class="kpi-value" style="font-size:16px;">233</div></div>
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总收入</div>
+        <div class="kpi-value" style="font-size:14px;">¥47,484</div>
+        <div class="kpi-sub">单价 ¥203.8</div></div>
+      <div class="kpi-card kpi-orange" style="padding:8px;"><div class="kpi-title">总成本</div>
+        <div class="kpi-value" style="font-size:14px;">¥16,077</div>
+        <div class="kpi-sub">单位 ¥69.0 · 已录入</div></div>
+      <div class="kpi-card kpi-green" style="padding:8px;"><div class="kpi-title">毛利</div>
+        <div class="kpi-value" style="font-size:14px;color:#2e7d32;">¥31,407</div>
+        <div class="kpi-sub">毛利率 66.1%</div></div>
+    </div>
+    <details style="margin-top:4px;">
+      <summary style="cursor:pointer;font-size:12px;color:#666;font-weight:600;">📊 月度明细</summary>
+      <div class="table-wrap" style="margin-top:6px;"><table style="font-size:12px;">
+        <thead><tr><th>月份</th><th style="text-align:right;">销量</th><th style="text-align:right;">收入(¥)</th><th style="text-align:right;">成本(¥)</th><th style="text-align:right;">毛利(¥)</th><th style="text-align:right;">毛利率</th></tr></thead>
+        <tbody>
+          <tr>
+  <td>2026-01</td>
+  <td style="text-align:right;">98</td>
+  <td style="text-align:right;">¥19,211</td>
+  <td style="text-align:right;color:#c00;">¥6,762</td>
+  <td style="text-align:right;color:#2e7d32;">¥12,449</td>
+  <td style="text-align:right;color:#2e7d32;">64.8%</td>
+</tr><tr>
+  <td>2026-02</td>
+  <td style="text-align:right;">70</td>
+  <td style="text-align:right;">¥14,737</td>
+  <td style="text-align:right;color:#c00;">¥4,830</td>
+  <td style="text-align:right;color:#2e7d32;">¥9,907</td>
+  <td style="text-align:right;color:#2e7d32;">67.2%</td>
+</tr><tr>
+  <td>2026-03</td>
+  <td style="text-align:right;">60</td>
+  <td style="text-align:right;">¥12,670</td>
+  <td style="text-align:right;color:#c00;">¥4,140</td>
+  <td style="text-align:right;color:#2e7d32;">¥8,530</td>
+  <td style="text-align:right;color:#2e7d32;">67.3%</td>
+</tr><tr>
+  <td>2026-04</td>
+  <td style="text-align:right;">5</td>
+  <td style="text-align:right;">¥867</td>
+  <td style="text-align:right;color:#c00;">¥345</td>
+  <td style="text-align:right;color:#2e7d32;">¥522</td>
+  <td style="text-align:right;color:#2e7d32;">60.2%</td>
+</tr>
+          <tr style="font-weight:bold;border-top:2px solid #333;">
+            <td>合计</td>
+            <td style="text-align:right;">233</td>
+            <td style="text-align:right;">¥47,484</td>
+            <td style="text-align:right;color:#c00;">¥16,077</td>
+            <td style="text-align:right;color:#2e7d32;">¥31,407</td>
+            <td style="text-align:right;color:#2e7d32;">66.1%</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </details>
+  </div>
+  <div class="table-card" style="border-left:3px solid #2e7d32;">
+    <div class="table-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+      <div>
+        <span style="font-weight:700;font-size:14px;">Oree Difusor De Hierbas Sabor A Menta Y </span>
+        <span style="font-size:11px;color:#888;margin-left:6px;">SKU: 10-00002</span>
+      </div>
+      <div><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(240,180,41,0.15);color:#b45309;margin-right:4px;">MercadoLibre</span></div>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;margin:8px 0;">
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总销量</div>
+        <div class="kpi-value" style="font-size:16px;">193</div></div>
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总收入</div>
+        <div class="kpi-value" style="font-size:14px;">¥11,782</div>
+        <div class="kpi-sub">单价 ¥61.0</div></div>
+      <div class="kpi-card kpi-orange" style="padding:8px;"><div class="kpi-title">总成本</div>
+        <div class="kpi-value" style="font-size:14px;">¥0</div>
+        <div class="kpi-sub">单位 ¥0.0 · <span style="color:#e65100;">未录入COGS</span></div></div>
+      <div class="kpi-card kpi-green" style="padding:8px;"><div class="kpi-title">毛利</div>
+        <div class="kpi-value" style="font-size:14px;color:#2e7d32;">¥11,782</div>
+        <div class="kpi-sub">—</div></div>
+    </div>
+    <details style="margin-top:4px;">
+      <summary style="cursor:pointer;font-size:12px;color:#666;font-weight:600;">📊 月度明细</summary>
+      <div class="table-wrap" style="margin-top:6px;"><table style="font-size:12px;">
+        <thead><tr><th>月份</th><th style="text-align:right;">销量</th><th style="text-align:right;">收入(¥)</th><th style="text-align:right;">成本(¥)</th><th style="text-align:right;">毛利(¥)</th><th style="text-align:right;">毛利率</th></tr></thead>
+        <tbody>
+          <tr>
+  <td>2026-01</td>
+  <td style="text-align:right;">75</td>
+  <td style="text-align:right;">¥4,306</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥4,306</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-02</td>
+  <td style="text-align:right;">90</td>
+  <td style="text-align:right;">¥5,706</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥5,706</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-03</td>
+  <td style="text-align:right;">28</td>
+  <td style="text-align:right;">¥1,769</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥1,769</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr style="color:#ccc;"><td>2026-04</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr style="font-weight:bold;border-top:2px solid #333;">
+            <td>合计</td>
+            <td style="text-align:right;">193</td>
+            <td style="text-align:right;">¥11,782</td>
+            <td style="text-align:right;color:#c00;">¥0</td>
+            <td style="text-align:right;color:#2e7d32;">¥11,782</td>
+            <td style="text-align:right;color:#2e7d32;">—</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </details>
+  </div>
+  <div class="table-card" style="border-left:3px solid #2e7d32;">
+    <div class="table-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+      <div>
+        <span style="font-weight:700;font-size:14px;">PS5手柄电池</span>
+        <span style="font-size:11px;color:#888;margin-left:6px;">SKU: cdb1</span>
+      </div>
+      <div><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(255,153,0,0.15);color:#b36b00;margin-right:4px;">Amazon</span></div>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;margin:8px 0;">
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总销量</div>
+        <div class="kpi-value" style="font-size:16px;">192</div></div>
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总收入</div>
+        <div class="kpi-value" style="font-size:14px;">¥30,482</div>
+        <div class="kpi-sub">单价 ¥158.8</div></div>
+      <div class="kpi-card kpi-orange" style="padding:8px;"><div class="kpi-title">总成本</div>
+        <div class="kpi-value" style="font-size:14px;">¥0</div>
+        <div class="kpi-sub">单位 ¥0.0 · <span style="color:#e65100;">未录入COGS</span></div></div>
+      <div class="kpi-card kpi-green" style="padding:8px;"><div class="kpi-title">毛利</div>
+        <div class="kpi-value" style="font-size:14px;color:#2e7d32;">¥30,482</div>
+        <div class="kpi-sub">—</div></div>
+    </div>
+    <details style="margin-top:4px;">
+      <summary style="cursor:pointer;font-size:12px;color:#666;font-weight:600;">📊 月度明细</summary>
+      <div class="table-wrap" style="margin-top:6px;"><table style="font-size:12px;">
+        <thead><tr><th>月份</th><th style="text-align:right;">销量</th><th style="text-align:right;">收入(¥)</th><th style="text-align:right;">成本(¥)</th><th style="text-align:right;">毛利(¥)</th><th style="text-align:right;">毛利率</th></tr></thead>
+        <tbody>
+          <tr>
+  <td>2026-01</td>
+  <td style="text-align:right;">31</td>
+  <td style="text-align:right;">¥198</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥198</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-02</td>
+  <td style="text-align:right;">26</td>
+  <td style="text-align:right;">¥5,763</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥5,763</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-03</td>
+  <td style="text-align:right;">135</td>
+  <td style="text-align:right;">¥24,521</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥24,521</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr style="color:#ccc;"><td>2026-04</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr style="font-weight:bold;border-top:2px solid #333;">
+            <td>合计</td>
+            <td style="text-align:right;">192</td>
+            <td style="text-align:right;">¥30,482</td>
+            <td style="text-align:right;color:#c00;">¥0</td>
+            <td style="text-align:right;color:#2e7d32;">¥30,482</td>
+            <td style="text-align:right;color:#2e7d32;">—</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </details>
+  </div>
+  <div class="table-card" style="border-left:3px solid #2e7d32;">
+    <div class="table-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+      <div>
+        <span style="font-weight:700;font-size:14px;">Oree Energy Difusor De Hierbas Aroma A L</span>
+        <span style="font-size:11px;color:#888;margin-left:6px;">SKU: 10-00001</span>
+      </div>
+      <div><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(240,180,41,0.15);color:#b45309;margin-right:4px;">MercadoLibre</span></div>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;margin:8px 0;">
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总销量</div>
+        <div class="kpi-value" style="font-size:16px;">184</div></div>
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总收入</div>
+        <div class="kpi-value" style="font-size:14px;">¥11,280</div>
+        <div class="kpi-sub">单价 ¥61.3</div></div>
+      <div class="kpi-card kpi-orange" style="padding:8px;"><div class="kpi-title">总成本</div>
+        <div class="kpi-value" style="font-size:14px;">¥0</div>
+        <div class="kpi-sub">单位 ¥0.0 · <span style="color:#e65100;">未录入COGS</span></div></div>
+      <div class="kpi-card kpi-green" style="padding:8px;"><div class="kpi-title">毛利</div>
+        <div class="kpi-value" style="font-size:14px;color:#2e7d32;">¥11,280</div>
+        <div class="kpi-sub">—</div></div>
+    </div>
+    <details style="margin-top:4px;">
+      <summary style="cursor:pointer;font-size:12px;color:#666;font-weight:600;">📊 月度明细</summary>
+      <div class="table-wrap" style="margin-top:6px;"><table style="font-size:12px;">
+        <thead><tr><th>月份</th><th style="text-align:right;">销量</th><th style="text-align:right;">收入(¥)</th><th style="text-align:right;">成本(¥)</th><th style="text-align:right;">毛利(¥)</th><th style="text-align:right;">毛利率</th></tr></thead>
+        <tbody>
+          <tr>
+  <td>2026-01</td>
+  <td style="text-align:right;">59</td>
+  <td style="text-align:right;">¥3,431</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥3,431</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-02</td>
+  <td style="text-align:right;">71</td>
+  <td style="text-align:right;">¥4,424</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥4,424</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-03</td>
+  <td style="text-align:right;">53</td>
+  <td style="text-align:right;">¥3,346</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥3,346</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-04</td>
+  <td style="text-align:right;">1</td>
+  <td style="text-align:right;">¥79</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥79</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr>
+          <tr style="font-weight:bold;border-top:2px solid #333;">
+            <td>合计</td>
+            <td style="text-align:right;">184</td>
+            <td style="text-align:right;">¥11,280</td>
+            <td style="text-align:right;color:#c00;">¥0</td>
+            <td style="text-align:right;color:#2e7d32;">¥11,280</td>
+            <td style="text-align:right;color:#2e7d32;">—</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </details>
+  </div>
+  <div class="table-card" style="border-left:3px solid #2e7d32;">
+    <div class="table-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+      <div>
+        <span style="font-weight:700;font-size:14px;">Oree Calm Difusor De Hierbas Aroma A Lav</span>
+        <span style="font-size:11px;color:#888;margin-left:6px;">SKU: 10-00003</span>
+      </div>
+      <div><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(240,180,41,0.15);color:#b45309;margin-right:4px;">MercadoLibre</span></div>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;margin:8px 0;">
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总销量</div>
+        <div class="kpi-value" style="font-size:16px;">162</div></div>
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总收入</div>
+        <div class="kpi-value" style="font-size:14px;">¥8,184</div>
+        <div class="kpi-sub">单价 ¥50.5</div></div>
+      <div class="kpi-card kpi-orange" style="padding:8px;"><div class="kpi-title">总成本</div>
+        <div class="kpi-value" style="font-size:14px;">¥0</div>
+        <div class="kpi-sub">单位 ¥0.0 · <span style="color:#e65100;">未录入COGS</span></div></div>
+      <div class="kpi-card kpi-green" style="padding:8px;"><div class="kpi-title">毛利</div>
+        <div class="kpi-value" style="font-size:14px;color:#2e7d32;">¥8,184</div>
+        <div class="kpi-sub">—</div></div>
+    </div>
+    <details style="margin-top:4px;">
+      <summary style="cursor:pointer;font-size:12px;color:#666;font-weight:600;">📊 月度明细</summary>
+      <div class="table-wrap" style="margin-top:6px;"><table style="font-size:12px;">
+        <thead><tr><th>月份</th><th style="text-align:right;">销量</th><th style="text-align:right;">收入(¥)</th><th style="text-align:right;">成本(¥)</th><th style="text-align:right;">毛利(¥)</th><th style="text-align:right;">毛利率</th></tr></thead>
+        <tbody>
+          <tr>
+  <td>2026-01</td>
+  <td style="text-align:right;">39</td>
+  <td style="text-align:right;">¥2,273</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥2,273</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-02</td>
+  <td style="text-align:right;">51</td>
+  <td style="text-align:right;">¥2,773</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥2,773</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-03</td>
+  <td style="text-align:right;">71</td>
+  <td style="text-align:right;">¥3,098</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥3,098</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-04</td>
+  <td style="text-align:right;">1</td>
+  <td style="text-align:right;">¥40</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥40</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr>
+          <tr style="font-weight:bold;border-top:2px solid #333;">
+            <td>合计</td>
+            <td style="text-align:right;">162</td>
+            <td style="text-align:right;">¥8,184</td>
+            <td style="text-align:right;color:#c00;">¥0</td>
+            <td style="text-align:right;color:#2e7d32;">¥8,184</td>
+            <td style="text-align:right;color:#2e7d32;">—</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </details>
+  </div>
+  <div class="table-card" style="border-left:3px solid #2e7d32;">
+    <div class="table-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+      <div>
+        <span style="font-weight:700;font-size:14px;">B0DD7GGCC3</span>
+        <span style="font-size:11px;color:#888;margin-left:6px;">SKU: 1U-C5WD-ADPP-FNSKU</span>
+      </div>
+      <div><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(255,153,0,0.15);color:#b36b00;margin-right:4px;">Amazon</span></div>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;margin:8px 0;">
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总销量</div>
+        <div class="kpi-value" style="font-size:16px;">78</div></div>
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总收入</div>
+        <div class="kpi-value" style="font-size:14px;">¥13,051</div>
+        <div class="kpi-sub">单价 ¥167.3</div></div>
+      <div class="kpi-card kpi-orange" style="padding:8px;"><div class="kpi-title">总成本</div>
+        <div class="kpi-value" style="font-size:14px;">¥0</div>
+        <div class="kpi-sub">单位 ¥0.0 · <span style="color:#e65100;">未录入COGS</span></div></div>
+      <div class="kpi-card kpi-green" style="padding:8px;"><div class="kpi-title">毛利</div>
+        <div class="kpi-value" style="font-size:14px;color:#2e7d32;">¥13,051</div>
+        <div class="kpi-sub">—</div></div>
+    </div>
+    <details style="margin-top:4px;">
+      <summary style="cursor:pointer;font-size:12px;color:#666;font-weight:600;">📊 月度明细</summary>
+      <div class="table-wrap" style="margin-top:6px;"><table style="font-size:12px;">
+        <thead><tr><th>月份</th><th style="text-align:right;">销量</th><th style="text-align:right;">收入(¥)</th><th style="text-align:right;">成本(¥)</th><th style="text-align:right;">毛利(¥)</th><th style="text-align:right;">毛利率</th></tr></thead>
+        <tbody>
+          <tr>
+  <td>2026-01</td>
+  <td style="text-align:right;">78</td>
+  <td style="text-align:right;">¥13,051</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥13,051</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr style="color:#ccc;"><td>2026-02</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr style="color:#ccc;"><td>2026-03</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr style="color:#ccc;"><td>2026-04</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr style="font-weight:bold;border-top:2px solid #333;">
+            <td>合计</td>
+            <td style="text-align:right;">78</td>
+            <td style="text-align:right;">¥13,051</td>
+            <td style="text-align:right;color:#c00;">¥0</td>
+            <td style="text-align:right;color:#2e7d32;">¥13,051</td>
+            <td style="text-align:right;color:#2e7d32;">—</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </details>
+  </div>
+  <div class="table-card" style="border-left:3px solid #2e7d32;">
+    <div class="table-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+      <div>
+        <span style="font-weight:700;font-size:14px;">充电电池仓4x4</span>
+        <span style="font-size:11px;color:#888;margin-left:6px;">SKU: TRB44-AEG</span>
+      </div>
+      <div><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(255,153,0,0.15);color:#b36b00;margin-right:4px;">Amazon</span></div>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;margin:8px 0;">
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总销量</div>
+        <div class="kpi-value" style="font-size:16px;">29</div></div>
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总收入</div>
+        <div class="kpi-value" style="font-size:14px;">¥6,702</div>
+        <div class="kpi-sub">单价 ¥231.1</div></div>
+      <div class="kpi-card kpi-orange" style="padding:8px;"><div class="kpi-title">总成本</div>
+        <div class="kpi-value" style="font-size:14px;">¥0</div>
+        <div class="kpi-sub">单位 ¥0.0 · <span style="color:#e65100;">未录入COGS</span></div></div>
+      <div class="kpi-card kpi-green" style="padding:8px;"><div class="kpi-title">毛利</div>
+        <div class="kpi-value" style="font-size:14px;color:#2e7d32;">¥6,702</div>
+        <div class="kpi-sub">—</div></div>
+    </div>
+    <details style="margin-top:4px;">
+      <summary style="cursor:pointer;font-size:12px;color:#666;font-weight:600;">📊 月度明细</summary>
+      <div class="table-wrap" style="margin-top:6px;"><table style="font-size:12px;">
+        <thead><tr><th>月份</th><th style="text-align:right;">销量</th><th style="text-align:right;">收入(¥)</th><th style="text-align:right;">成本(¥)</th><th style="text-align:right;">毛利(¥)</th><th style="text-align:right;">毛利率</th></tr></thead>
+        <tbody>
+          <tr style="color:#ccc;"><td>2026-01</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr>
+  <td>2026-02</td>
+  <td style="text-align:right;">2</td>
+  <td style="text-align:right;">¥514</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥514</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-03</td>
+  <td style="text-align:right;">19</td>
+  <td style="text-align:right;">¥4,392</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥4,392</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-04</td>
+  <td style="text-align:right;">8</td>
+  <td style="text-align:right;">¥1,795</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥1,795</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr>
+          <tr style="font-weight:bold;border-top:2px solid #333;">
+            <td>合计</td>
+            <td style="text-align:right;">29</td>
+            <td style="text-align:right;">¥6,702</td>
+            <td style="text-align:right;color:#c00;">¥0</td>
+            <td style="text-align:right;color:#2e7d32;">¥6,702</td>
+            <td style="text-align:right;color:#2e7d32;">—</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </details>
+  </div>
+  <div class="table-card" style="border-left:3px solid #2e7d32;">
+    <div class="table-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+      <div>
+        <span style="font-weight:700;font-size:14px;">B0FNCKJ3NJ</span>
+        <span style="font-size:11px;color:#888;margin-left:6px;">SKU: JQ-5VMF-4OVY</span>
+      </div>
+      <div><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(255,153,0,0.15);color:#b36b00;margin-right:4px;">Amazon</span></div>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;margin:8px 0;">
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总销量</div>
+        <div class="kpi-value" style="font-size:16px;">22</div></div>
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总收入</div>
+        <div class="kpi-value" style="font-size:14px;">¥4,821</div>
+        <div class="kpi-sub">单价 ¥219.1</div></div>
+      <div class="kpi-card kpi-orange" style="padding:8px;"><div class="kpi-title">总成本</div>
+        <div class="kpi-value" style="font-size:14px;">¥0</div>
+        <div class="kpi-sub">单位 ¥0.0 · <span style="color:#e65100;">未录入COGS</span></div></div>
+      <div class="kpi-card kpi-green" style="padding:8px;"><div class="kpi-title">毛利</div>
+        <div class="kpi-value" style="font-size:14px;color:#2e7d32;">¥4,821</div>
+        <div class="kpi-sub">—</div></div>
+    </div>
+    <details style="margin-top:4px;">
+      <summary style="cursor:pointer;font-size:12px;color:#666;font-weight:600;">📊 月度明细</summary>
+      <div class="table-wrap" style="margin-top:6px;"><table style="font-size:12px;">
+        <thead><tr><th>月份</th><th style="text-align:right;">销量</th><th style="text-align:right;">收入(¥)</th><th style="text-align:right;">成本(¥)</th><th style="text-align:right;">毛利(¥)</th><th style="text-align:right;">毛利率</th></tr></thead>
+        <tbody>
+          <tr>
+  <td>2026-01</td>
+  <td style="text-align:right;">7</td>
+  <td style="text-align:right;">¥1,504</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥1,504</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-02</td>
+  <td style="text-align:right;">12</td>
+  <td style="text-align:right;">¥2,594</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥2,594</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-03</td>
+  <td style="text-align:right;">3</td>
+  <td style="text-align:right;">¥724</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥724</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr style="color:#ccc;"><td>2026-04</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr style="font-weight:bold;border-top:2px solid #333;">
+            <td>合计</td>
+            <td style="text-align:right;">22</td>
+            <td style="text-align:right;">¥4,821</td>
+            <td style="text-align:right;color:#c00;">¥0</td>
+            <td style="text-align:right;color:#2e7d32;">¥4,821</td>
+            <td style="text-align:right;color:#2e7d32;">—</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </details>
+  </div>
+  <div class="table-card" style="border-left:3px solid #2e7d32;">
+    <div class="table-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+      <div>
+        <span style="font-weight:700;font-size:14px;">B0F1LB4XPG</span>
+        <span style="font-size:11px;color:#888;margin-left:6px;">SKU: 8aaold</span>
+      </div>
+      <div><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(255,153,0,0.15);color:#b36b00;margin-right:4px;">Amazon</span></div>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;margin:8px 0;">
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总销量</div>
+        <div class="kpi-value" style="font-size:16px;">18</div></div>
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总收入</div>
+        <div class="kpi-value" style="font-size:14px;">¥4,071</div>
+        <div class="kpi-sub">单价 ¥226.2</div></div>
+      <div class="kpi-card kpi-orange" style="padding:8px;"><div class="kpi-title">总成本</div>
+        <div class="kpi-value" style="font-size:14px;">¥0</div>
+        <div class="kpi-sub">单位 ¥0.0 · <span style="color:#e65100;">未录入COGS</span></div></div>
+      <div class="kpi-card kpi-green" style="padding:8px;"><div class="kpi-title">毛利</div>
+        <div class="kpi-value" style="font-size:14px;color:#2e7d32;">¥4,071</div>
+        <div class="kpi-sub">—</div></div>
+    </div>
+    <details style="margin-top:4px;">
+      <summary style="cursor:pointer;font-size:12px;color:#666;font-weight:600;">📊 月度明细</summary>
+      <div class="table-wrap" style="margin-top:6px;"><table style="font-size:12px;">
+        <thead><tr><th>月份</th><th style="text-align:right;">销量</th><th style="text-align:right;">收入(¥)</th><th style="text-align:right;">成本(¥)</th><th style="text-align:right;">毛利(¥)</th><th style="text-align:right;">毛利率</th></tr></thead>
+        <tbody>
+          <tr>
+  <td>2026-01</td>
+  <td style="text-align:right;">5</td>
+  <td style="text-align:right;">¥1,118</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥1,118</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-02</td>
+  <td style="text-align:right;">12</td>
+  <td style="text-align:right;">¥2,698</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥2,698</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-03</td>
+  <td style="text-align:right;">1</td>
+  <td style="text-align:right;">¥256</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥256</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr style="color:#ccc;"><td>2026-04</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr style="font-weight:bold;border-top:2px solid #333;">
+            <td>合计</td>
+            <td style="text-align:right;">18</td>
+            <td style="text-align:right;">¥4,071</td>
+            <td style="text-align:right;color:#c00;">¥0</td>
+            <td style="text-align:right;color:#2e7d32;">¥4,071</td>
+            <td style="text-align:right;color:#2e7d32;">—</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </details>
+  </div>
+  <div class="table-card" style="border-left:3px solid #2e7d32;">
+    <div class="table-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+      <div>
+        <span style="font-weight:700;font-size:14px;">Cortinas Tira Led Luces Decorativa Decor</span>
+        <span style="font-size:11px;color:#888;margin-left:6px;">SKU: 10-00004</span>
+      </div>
+      <div><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(240,180,41,0.15);color:#b45309;margin-right:4px;">MercadoLibre</span></div>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;margin:8px 0;">
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总销量</div>
+        <div class="kpi-value" style="font-size:16px;">12</div></div>
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总收入</div>
+        <div class="kpi-value" style="font-size:14px;">¥144</div>
+        <div class="kpi-sub">单价 ¥12.0</div></div>
+      <div class="kpi-card kpi-orange" style="padding:8px;"><div class="kpi-title">总成本</div>
+        <div class="kpi-value" style="font-size:14px;">¥0</div>
+        <div class="kpi-sub">单位 ¥0.0 · <span style="color:#e65100;">未录入COGS</span></div></div>
+      <div class="kpi-card kpi-green" style="padding:8px;"><div class="kpi-title">毛利</div>
+        <div class="kpi-value" style="font-size:14px;color:#2e7d32;">¥144</div>
+        <div class="kpi-sub">—</div></div>
+    </div>
+    <details style="margin-top:4px;">
+      <summary style="cursor:pointer;font-size:12px;color:#666;font-weight:600;">📊 月度明细</summary>
+      <div class="table-wrap" style="margin-top:6px;"><table style="font-size:12px;">
+        <thead><tr><th>月份</th><th style="text-align:right;">销量</th><th style="text-align:right;">收入(¥)</th><th style="text-align:right;">成本(¥)</th><th style="text-align:right;">毛利(¥)</th><th style="text-align:right;">毛利率</th></tr></thead>
+        <tbody>
+          <tr>
+  <td>2026-01</td>
+  <td style="text-align:right;">12</td>
+  <td style="text-align:right;">¥144</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥144</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr style="color:#ccc;"><td>2026-02</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr style="color:#ccc;"><td>2026-03</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr style="color:#ccc;"><td>2026-04</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr style="font-weight:bold;border-top:2px solid #333;">
+            <td>合计</td>
+            <td style="text-align:right;">12</td>
+            <td style="text-align:right;">¥144</td>
+            <td style="text-align:right;color:#c00;">¥0</td>
+            <td style="text-align:right;color:#2e7d32;">¥144</td>
+            <td style="text-align:right;color:#2e7d32;">—</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </details>
+  </div>
+  <div class="table-card" style="border-left:3px solid #2e7d32;">
+    <div class="table-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+      <div>
+        <span style="font-weight:700;font-size:14px;">充电电池仓4x4</span>
+        <span style="font-size:11px;color:#888;margin-left:6px;">SKU: 202542317</span>
+      </div>
+      <div><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(0,113,220,0.15);color:#004fa0;margin-right:4px;">Walmart</span></div>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;margin:8px 0;">
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总销量</div>
+        <div class="kpi-value" style="font-size:16px;">10</div></div>
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总收入</div>
+        <div class="kpi-value" style="font-size:14px;">¥2,229</div>
+        <div class="kpi-sub">单价 ¥222.9</div></div>
+      <div class="kpi-card kpi-orange" style="padding:8px;"><div class="kpi-title">总成本</div>
+        <div class="kpi-value" style="font-size:14px;">¥690</div>
+        <div class="kpi-sub">单位 ¥69.0 · 已录入</div></div>
+      <div class="kpi-card kpi-green" style="padding:8px;"><div class="kpi-title">毛利</div>
+        <div class="kpi-value" style="font-size:14px;color:#2e7d32;">¥1,539</div>
+        <div class="kpi-sub">毛利率 69.0%</div></div>
+    </div>
+    <details style="margin-top:4px;">
+      <summary style="cursor:pointer;font-size:12px;color:#666;font-weight:600;">📊 月度明细</summary>
+      <div class="table-wrap" style="margin-top:6px;"><table style="font-size:12px;">
+        <thead><tr><th>月份</th><th style="text-align:right;">销量</th><th style="text-align:right;">收入(¥)</th><th style="text-align:right;">成本(¥)</th><th style="text-align:right;">毛利(¥)</th><th style="text-align:right;">毛利率</th></tr></thead>
+        <tbody>
+          <tr style="color:#ccc;"><td>2026-01</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr>
+  <td>2026-02</td>
+  <td style="text-align:right;">9</td>
+  <td style="text-align:right;">¥2,004</td>
+  <td style="text-align:right;color:#c00;">¥621</td>
+  <td style="text-align:right;color:#2e7d32;">¥1,383</td>
+  <td style="text-align:right;color:#2e7d32;">69.0%</td>
+</tr><tr>
+  <td>2026-03</td>
+  <td style="text-align:right;">1</td>
+  <td style="text-align:right;">¥225</td>
+  <td style="text-align:right;color:#c00;">¥69</td>
+  <td style="text-align:right;color:#2e7d32;">¥156</td>
+  <td style="text-align:right;color:#2e7d32;">69.3%</td>
+</tr><tr style="color:#ccc;"><td>2026-04</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr style="font-weight:bold;border-top:2px solid #333;">
+            <td>合计</td>
+            <td style="text-align:right;">10</td>
+            <td style="text-align:right;">¥2,229</td>
+            <td style="text-align:right;color:#c00;">¥690</td>
+            <td style="text-align:right;color:#2e7d32;">¥1,539</td>
+            <td style="text-align:right;color:#2e7d32;">69.0%</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </details>
+  </div>
+  <div class="table-card" style="border-left:3px solid #2e7d32;">
+    <div class="table-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+      <div>
+        <span style="font-weight:700;font-size:14px;">【A】电池仓8AA</span>
+        <span style="font-size:11px;color:#888;margin-left:6px;">SKU: TRB8-AEG</span>
+      </div>
+      <div><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(255,153,0,0.15);color:#b36b00;margin-right:4px;">Amazon</span></div>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;margin:8px 0;">
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总销量</div>
+        <div class="kpi-value" style="font-size:16px;">10</div></div>
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总收入</div>
+        <div class="kpi-value" style="font-size:14px;">¥2,289</div>
+        <div class="kpi-sub">单价 ¥228.9</div></div>
+      <div class="kpi-card kpi-orange" style="padding:8px;"><div class="kpi-title">总成本</div>
+        <div class="kpi-value" style="font-size:14px;">¥0</div>
+        <div class="kpi-sub">单位 ¥0.0 · <span style="color:#e65100;">未录入COGS</span></div></div>
+      <div class="kpi-card kpi-green" style="padding:8px;"><div class="kpi-title">毛利</div>
+        <div class="kpi-value" style="font-size:14px;color:#2e7d32;">¥2,289</div>
+        <div class="kpi-sub">—</div></div>
+    </div>
+    <details style="margin-top:4px;">
+      <summary style="cursor:pointer;font-size:12px;color:#666;font-weight:600;">📊 月度明细</summary>
+      <div class="table-wrap" style="margin-top:6px;"><table style="font-size:12px;">
+        <thead><tr><th>月份</th><th style="text-align:right;">销量</th><th style="text-align:right;">收入(¥)</th><th style="text-align:right;">成本(¥)</th><th style="text-align:right;">毛利(¥)</th><th style="text-align:right;">毛利率</th></tr></thead>
+        <tbody>
+          <tr style="color:#ccc;"><td>2026-01</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr style="color:#ccc;"><td>2026-02</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr>
+  <td>2026-03</td>
+  <td style="text-align:right;">8</td>
+  <td style="text-align:right;">¥1,843</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥1,843</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-04</td>
+  <td style="text-align:right;">2</td>
+  <td style="text-align:right;">¥446</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥446</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr>
+          <tr style="font-weight:bold;border-top:2px solid #333;">
+            <td>合计</td>
+            <td style="text-align:right;">10</td>
+            <td style="text-align:right;">¥2,289</td>
+            <td style="text-align:right;color:#c00;">¥0</td>
+            <td style="text-align:right;color:#2e7d32;">¥2,289</td>
+            <td style="text-align:right;color:#2e7d32;">—</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </details>
+  </div>
+  <div class="table-card" style="border-left:3px solid #2e7d32;">
+    <div class="table-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+      <div>
+        <span style="font-weight:700;font-size:14px;">Switch2代大礼包</span>
+        <span style="font-size:11px;color:#888;margin-left:6px;">SKU: 58655645309</span>
+      </div>
+      <div><span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(230,57,70,0.15);color:#9b001b;margin-right:4px;">Temu</span></div>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;margin:8px 0;">
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总销量</div>
+        <div class="kpi-value" style="font-size:16px;">4</div></div>
+      <div class="kpi-card kpi-blue" style="padding:8px;"><div class="kpi-title">总收入</div>
+        <div class="kpi-value" style="font-size:14px;">¥0</div>
+        <div class="kpi-sub">单价 ¥0.0</div></div>
+      <div class="kpi-card kpi-orange" style="padding:8px;"><div class="kpi-title">总成本</div>
+        <div class="kpi-value" style="font-size:14px;">¥0</div>
+        <div class="kpi-sub">单位 ¥0.0 · <span style="color:#e65100;">未录入COGS</span></div></div>
+      <div class="kpi-card kpi-green" style="padding:8px;"><div class="kpi-title">毛利</div>
+        <div class="kpi-value" style="font-size:14px;color:#2e7d32;">¥0</div>
+        <div class="kpi-sub">—</div></div>
+    </div>
+    <details style="margin-top:4px;">
+      <summary style="cursor:pointer;font-size:12px;color:#666;font-weight:600;">📊 月度明细</summary>
+      <div class="table-wrap" style="margin-top:6px;"><table style="font-size:12px;">
+        <thead><tr><th>月份</th><th style="text-align:right;">销量</th><th style="text-align:right;">收入(¥)</th><th style="text-align:right;">成本(¥)</th><th style="text-align:right;">毛利(¥)</th><th style="text-align:right;">毛利率</th></tr></thead>
+        <tbody>
+          <tr>
+  <td>2026-01</td>
+  <td style="text-align:right;">2</td>
+  <td style="text-align:right;">¥0</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr>
+  <td>2026-02</td>
+  <td style="text-align:right;">2</td>
+  <td style="text-align:right;">¥0</td>
+  <td style="text-align:right;color:#c00;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">¥0</td>
+  <td style="text-align:right;color:#2e7d32;">—</td>
+</tr><tr style="color:#ccc;"><td>2026-03</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr style="color:#ccc;"><td>2026-04</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr style="font-weight:bold;border-top:2px solid #333;">
+            <td>合计</td>
+            <td style="text-align:right;">4</td>
+            <td style="text-align:right;">¥0</td>
+            <td style="text-align:right;color:#c00;">¥0</td>
+            <td style="text-align:right;color:#2e7d32;">¥0</td>
+            <td style="text-align:right;color:#2e7d32;">—</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </details>
+  </div>
+</div>
 
 
 <div id="feishu" class="section">
